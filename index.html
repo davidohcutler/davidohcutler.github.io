@@ -1,127 +1,262 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>David Owen Horace Cutler - Mathematics Research</title>
-    
-    <!-- Import Cormorant font from Google Fonts -->
-    <link href="https://fonts.googleapis.com/css2?family=Cormorant:wght@400;600&display=swap" rel="stylesheet">
-
+    <title>David Owen Horace Cutler | Math Research</title>
     <style>
-        body {
-            font-family: 'Cormorant', serif; /* Utopia-like font */
-            line-height: 1.6;
+        /* General Styles */
+        * {
             margin: 0;
             padding: 0;
+            box-sizing: border-box;
         }
 
-        header {
-            background-color: #004080;
-            color: white;
-            padding: 1rem 2rem;
-            text-align: center;
-        }
-
-        nav {
+        body {
+            font-family: 'Courier New', Courier, monospace;
+            background-color: #FDF6E3; /* Warm off-white */
+            color: #003366; /* Soft blue */
             display: flex;
-            justify-content: center;
-            background-color: #333;
+            min-height: 100vh;
         }
 
-        nav a {
-            color: white;
+        a {
             text-decoration: none;
-            padding: 0.5rem 1rem;
+            color: #005B99; /* Accent blue */
         }
 
-        nav a:hover {
-            background-color: #575757;
+        a:hover {
+            text-decoration: underline;
         }
 
-        section {
-            padding: 2rem;
-            margin: auto;
-            max-width: 800px;
+        /* Sidebar */
+        .sidebar {
+            width: 300px;
+            height: 100vh;
+            position: fixed;
+            top: 0;
+            left: 0;
+            background-color: #FDF6E3;
+            border-right: 1px solid #005B99;
+            padding: 2rem 1rem;
+            display: flex;
+            flex-direction: column;
+            overflow-y: auto;
         }
 
-        footer {
+        .sidebar h1 {
+            font-size: 1.5rem;
+            color: #003366;
+            margin-bottom: 1rem;
             text-align: center;
-            background-color: #f4f4f4;
-            padding: 1rem;
+        }
+
+        .sidebar nav {
+            text-align: left;
+            margin-top: 1rem;
+        }
+
+        .sidebar nav a {
+            display: block;
+            margin-bottom: 0.5rem;
+            font-size: 1rem;
+            text-transform: uppercase;
+            color: #003366;
+        }
+
+        /* Content Area */
+        .content {
+            margin-left: 300px;
+            padding: 2rem;
+            flex: 1;
+        }
+
+        .section {
+            margin-bottom: 2rem;
+        }
+
+        .section h2 {
+            font-size: 1.5rem;
+            margin-bottom: 0.5rem;
+            border-bottom: 1px solid #003366;
+            padding-bottom: 0.5rem;
+            color: #003366;
+        }
+
+        .section p {
+            font-size: 1rem;
+            margin-bottom: 1rem;
+        }
+
+        .section canvas {
+            display: block;
+            margin: 1rem auto;
+            border: 1px solid #003366;
+        }
+
+        .cat-photos img {
+            width: 300px;
+            margin: 10px;
+            border: 1px solid #003366;
+            border-radius: 5px;
+        }
+
+        /* Footer */
+        footer {
+            margin-top: 2rem;
+            text-align: center;
             font-size: 0.9rem;
+            color: #003366;
         }
 
-        .contact a {
-            color: #004080;
-            text-decoration: none;
-        }
-
-        h1, h2 {
-            font-weight: 600;
-        }
-
-        p, li {
-            font-weight: 400;
+        /* Grid Background */
+        body::before {
+            content: '';
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: radial-gradient(circle, rgba(0, 51, 102, 0.2) 1px, transparent 1px),
+                              radial-gradient(circle, rgba(0, 51, 102, 0.2) 1px, transparent 1px);
+            background-size: 50px 50px;
+            z-index: -1;
         }
     </style>
 </head>
-
 <body>
-    <header>
+    <aside class="sidebar">
         <h1>David Owen Horace Cutler</h1>
-        <p>Mathematics Student at Tufts University</p>
-    </header>
+        <center><p>Undergraduate Student</p></center>
+        <nav>
+            <a href="#about">About</a>
+            <a href="#research-interests">Research Interests</a>
+            <a href="#publications">Publications</a>
+            <a href="#links">My Favorite Links</a>
+            <a href="#cat-photos">Cat Photos</a>
+            <a href="#contact">Contact</a>
+        </nav>
+    </aside>
 
-    <nav>
-        <a href="#about">About Me</a>
-        <a href="#research">Research</a>
-        <a href="#publications">Publications</a>
-        <a href="#contact">Contact</a>
-    </nav>
+    <main class="content">
+        <section id="about" class="section">
+            <h2>About Me</h2>
+<img src="me.png" alt="me" width="300" height="200">
 
-    <section id="about">
-        <h2>About Me</h2>
-        <p>Welcome to my research website! I am David Owen Horace Cutler, an undergraduate student at Tufts University working on research in pure mathematics. You can download my CV <a href="davidohcutlerCV.pdf" download="davidohcutlerCV.pdf">here</a>.</p>
-        <p>Here is some cool stuff:</p>
-        <ul>
-            <li><a href="https://visualizing-algorithms.vercel.app/convex_hull">Convex hull visualizer</a></li>
-            <li><a href="https://egeozgul.github.io/Minkowski-Sum-Calculator/">Minkowski sum calculator</a></li>
-            <li><a href="https://www.newyorker.com/magazine/2006/08/28/manifold-destiny">A great article on math</a></li>
-        </ul>
-    </section>
+            <p>I am an undergraduate student studying mathematics at Tufts University. I enjoy topics in geometry and analysis. Outside of math, I listen to a lot of music. I am also a very big fan of <a href="https://en.wikipedia.org/wiki/Cat">cats</a>; you can see mine below.</p>
+            <p><a href="davidohcutlerCV.pdf" download>Download My CV</a> - updated Nov. 2024</p>
+        </section>
 
-    <section id="research">
-        <h2>Research</h2>
-        <p>My work primarily focuses on:</p>
-        <ul>
-            <li>Convex geometry</li>
-            <li>Geometric analysis</li>
-            <li>Broader differential geometry</li>
-        </ul>
-        <p>I am especially interested in research which regards the interactions between these fields. I intend to start work in more proper analysis at some point in the near future.</p>
-        <p>Find more details in the publications section, and feel free to contact me for collaborations!</p>
-    </section>
+        <section id="research-interests" class="section">
+            <h2>Research Interests</h2>
 
-    <section id="publications">
-        <h2>Publications</h2>
-        <p>I have one paper at this time, with more forthcoming.</p>
-        <ul>
-            1. The Hausdorff distance and metrics on toric singularity types, with A. Aitokhuehi, B. Braiman, T. Darvas, R. Deaton, P. Gupta, J. Horsley, V. Pidaparthy, J. Tang, preprint, <a href="https://arxiv.org/abs/2411.11246" target="_blank" rel="noopener noreferrer">arxiv:2411.11246</a>
-        </ul>
-        <p>You can also see my profile on <a href="https://scholar.google.com/citations?hl=en&authuser=1&user=_lKn0WIAAAAJ">Google Scholar</a>.</p>
-    </section>
+            <h3>Convex Geometry</h3>
+            <p>I am interested in many problems in convex geometry. As of now, I am most interested in looking at so-called "reverse isoperimetric inequalities" for convex bodies. </p>
+            <p><b>NEW!</b>: I recently submitted a paper regarding a quasimetric that is defined in terms of mixed volumes. You can see it <a href="https://arxiv.org/abs/2411.11246">here</a>!</p>
+            <canvas id="convex-hull" width="600" height="400"></canvas>
 
-    <section id="contact" class="contact">
-        <h2>Contact</h2>
-        <p>Email: <a href="mailto:david.cutler@tufts.edu">david.cutler@tufts.edu</a></p>
-        <p>Follow me on <a href="https://www.linkedin.com/in/david-owen-horace-cutler-825b28229/" target="_blank">LinkedIn</a>.
-    </section>
+            <h3>Harmonic Analysis</h3>
+            <p>I am also interested in harmonic analysis on Euclidean spaces. I hope to undertake more research in this area soon.</p>
+            <canvas id="fourier" width="600" height="400"></canvas>
+        </section>
 
-    <footer>
-        <p>© Copyright 2024, David Owen Horace Cutler. All rights reserved.</p>
-    </footer>
+        <section id="publications" class="section">
+            <h2>Publications</h2>
+            <ul>
+                <li>The Hausdorff distance and metrics on toric singularity types, with A. Aitokhuehi, B. Braiman, T. Darvas, R. Deaton, P. Gupta, J. Horsley, V. Pidaparthy, J. Tang, preprint, <a href="https://arxiv.org/abs/2411.11246" target="_blank" rel="noopener noreferrer">arxiv:2411.11246</a></li>
+
+            </ul>
+
+        </section>
+
+        <section id="links" class="section">
+            <h2>My Favorite Links</h2>
+            <ul>
+                <li><a href="https://genrandom.com/cats/">Random cat generator</a></li>
+                <li><a href="https://visualizing-algorithms.vercel.app/convex_hull">Convex hull visualizer</a></li>
+                <li><a href="https://www.newyorker.com/magazine/2006/08/28/manifold-destiny">"Manifold Destiny"</a></li>
+                <li><a href="https://lgbtmath.org/">Spectra</a></li>
+            </ul>
+        </section>
+
+        <section id="cat-photos" class="section">
+            <h2>Cat Photos</h2>
+            <p>Here are some photos of my cats. I intend to update them frequently.</p>
+            <div class="cat-photos">
+                <img src="cat1.png" alt="Cat 1">
+                <img src="cat2.png" alt="Cat 2">
+                <img src="cat3.png" alt="Cat 3">
+            </div>
+        </section>
+
+        <section id="contact" class="section">
+            <h2>Contact</h2>
+            <p>If you’d like to get in touch, email me at <a href="mailto:david.cutler@tufts.edu">david.cutler@tufts.edu</a>.</p>
+        </section>
+    </main>
+
+    <script>
+        // Convex Hull Visualization
+        const convexCanvas = document.getElementById('convex-hull');
+        const convexCtx = convexCanvas.getContext('2d');
+
+        function drawConvexHull() {
+            const points = [
+                { x: 50, y: 300 },
+                { x: 100, y: 100 },
+                { x: 200, y: 50 },
+                { x: 300, y: 100 },
+                { x: 400, y: 250 },
+                { x: 150, y: 350 },
+            ];
+
+            convexCtx.strokeStyle = '#003366';
+            convexCtx.fillStyle = 'rgba(0, 51, 102, 0.3)';
+
+            // Draw points
+            points.forEach(point => {
+                convexCtx.beginPath();
+                convexCtx.arc(point.x, point.y, 5, 0, 2 * Math.PI);
+                convexCtx.fill();
+            });
+
+            // Draw convex hull
+            convexCtx.beginPath();
+            convexCtx.moveTo(50, 300);
+            convexCtx.lineTo(100, 100);
+            convexCtx.lineTo(200, 50);
+            convexCtx.lineTo(300, 100);
+            convexCtx.lineTo(400, 250);
+            convexCtx.lineTo(150, 350);
+            convexCtx.closePath();
+            convexCtx.stroke();
+            convexCtx.fill();
+        }
+
+        drawConvexHull();
+
+        // Fourier Time-Domain Visualization
+        const fourierCanvas = document.getElementById('fourier');
+        const fourierCtx = fourierCanvas.getContext('2d');
+
+        function drawTimeDomain() {
+            const width = fourierCanvas.width;
+            const height = fourierCanvas.height;
+
+            fourierCtx.strokeStyle = '#003366';
+
+            fourierCtx.beginPath();
+            for (let x = 0; x < width; x++) {
+                const t = x / width * 4 * Math.PI;
+                const y = Math.sin(t) + 0.5 * Math.sin(3 * t);
+                const yPos = height / 2 - y * 50;
+                if (x === 0) fourierCtx.moveTo(x, yPos);
+                else fourierCtx.lineTo(x, yPos);
+            }
+            fourierCtx.stroke();
+        }
+
+        drawTimeDomain();
+    </script>
 </body>
-
 </html>
