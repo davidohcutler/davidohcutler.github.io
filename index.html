@@ -143,9 +143,9 @@
         <section id="about" class="section">
             <h2>About Me</h2>
             <div style="display: flex; align-items: flex-start; gap: 1rem;">
-                <img src="me.png" alt="me" style="width: 300px; height: auto; border-radius: 8px; border: 1px solid #003366;">
+                <img src="me.png" alt="me" style="width: 150px; height: auto; border-radius: 8px; border: 1px solid #003366;">
                 <div>
-                    <p>Hi! My name is David Owen Horace Cutler. I am an undergraduate student studying mathematics at Tufts University. I enjoy topics in geometry and analysis. Outside of math, I hike and listen to a lot of music. I am also a very big fan of <a href="https://en.wikipedia.org/wiki/Cat">cats</a>; you can see mine below!</p>
+                    <p>Hi! My name is David Owen Horace Cutler. I am an undergraduate student studying mathematics at Tufts University. I enjoy topics in geometry and analysis.</p> <p>Outside of math, I hike and listen to a lot of music. I am also a very big fan of <a href="https://en.wikipedia.org/wiki/Cat">cats</a>; you can see mine below!</p>
                     <p><a href="davidohcutlerCV.pdf" download>Download My CV</a> - updated Nov. 2024</p>
                 </div>
             </div>
@@ -218,21 +218,52 @@
             ];
 
             convexCtx.strokeStyle = '#003366';
-            convexCtx.fillStyle = 'rgba(0, 51, 102, 0.2)';
-            convexCtx.lineWidth = 2;
+            convexCtx.fillStyle = 'rgba(0, 51, 102, 0.3)';
 
+            // Draw points
+            points.forEach(point => {
+                convexCtx.beginPath();
+                convexCtx.arc(point.x, point.y, 5, 0, 2 * Math.PI);
+                convexCtx.fill();
+            });
+
+            // Draw convex hull
             convexCtx.beginPath();
-            for (let i = 0; i < points.length; i++) {
-                const { x, y } = points[i];
-                if (i === 0) convexCtx.moveTo(x, y);
-                else convexCtx.lineTo(x, y);
-            }
+            convexCtx.moveTo(50, 300);
+            convexCtx.lineTo(100, 100);
+            convexCtx.lineTo(200, 50);
+            convexCtx.lineTo(300, 100);
+            convexCtx.lineTo(400, 250);
+            convexCtx.lineTo(150, 350);
             convexCtx.closePath();
             convexCtx.stroke();
             convexCtx.fill();
         }
 
         drawConvexHull();
+
+        // Fourier Time-Domain Visualization
+        const fourierCanvas = document.getElementById('fourier');
+        const fourierCtx = fourierCanvas.getContext('2d');
+
+        function drawTimeDomain() {
+            const width = fourierCanvas.width;
+            const height = fourierCanvas.height;
+
+            fourierCtx.strokeStyle = '#003366';
+
+            fourierCtx.beginPath();
+            for (let x = 0; x < width; x++) {
+                const t = x / width * 4 * Math.PI;
+                const y = Math.sin(t) + 0.5 * Math.sin(3 * t);
+                const yPos = height / 2 - y * 50;
+                if (x === 0) fourierCtx.moveTo(x, yPos);
+                else fourierCtx.lineTo(x, yPos);
+            }
+            fourierCtx.stroke();
+        }
+
+        drawTimeDomain();
     </script>
 </body>
 </html>
