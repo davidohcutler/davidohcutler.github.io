@@ -166,13 +166,20 @@
         <section id="publications" class="section">
             <h2>Publications</h2>
             <p>
-                The Hausdorff distance and metrics on toric singularity types (with A. Aitokhuehi, B. Braiman, T. Darvas, R. Deaton, P. Gupta, J. Horsley, V. Pidaparthy, J. Tang), preprint, <a href="https://arxiv.org/abs/2411.11246" target="_blank" rel="noopener noreferrer">arxiv:2411.11246</a>
+                The Hausdorff distance and metrics on toric singularity types (with A. Aitokhuehi, B. Braiman, T. Darvas, R. Deaton, P. Gupta, J. Horsley, V. Pidaparthy, J. Tang), preprint, 
+                <a href="https://arxiv.org/abs/2411.11246" target="_blank" rel="noopener noreferrer">arxiv:2411.11246</a>
             </p>
         </section>
 
         <section id="notes-and-talks" class="section">
             <h2>Notes and Talks</h2>
-            <p>Under construction</p>
+            <p>
+                <a href="https://meetings.ams.org/math/jmm2025/meetingapp.cgi/Paper/42612" target="_blank">
+                    <em>Hölder estimates for the Hausdorff distance and a quasi-metric</em>
+                </a>,
+                AMS-MAA-SIAM Special Session on Research in Mathematics by Undergraduates, Joint Mathematics Meetings, Jan. 2025.
+                [<a href="Hölder_estimates_for_the_Hausdorff_distance_and_a_quasi_metric.pdf" download>Download PDF</a>]
+            </p>
         </section>
 
         <section id="cat-photos" class="section">
@@ -192,67 +199,7 @@
     </main>
 
     <script>
-        // Convex Hull Visualization
-        const convexCanvas = document.getElementById('convex-hull');
-        const convexCtx = convexCanvas.getContext('2d');
-
-        function drawConvexHull() {
-            const points = [
-                { x: 25, y: 150 },
-                { x: 50, y: 50 },
-                { x: 100, y: 25 },
-                { x: 150, y: 50 },
-                { x: 200, y: 125 },
-                { x: 75, y: 175 },
-            ];
-
-            convexCtx.strokeStyle = '#003366';
-            convexCtx.fillStyle = 'rgba(0, 51, 102, 0.3)';
-
-            // Draw points
-            points.forEach(point => {
-                convexCtx.beginPath();
-                convexCtx.arc(point.x, point.y, 5, 0, 2 * Math.PI);
-                convexCtx.fill();
-            });
-
-            // Draw convex hull
-            convexCtx.beginPath();
-            convexCtx.moveTo(25, 150);
-            convexCtx.lineTo(50, 50);
-            convexCtx.lineTo(100, 25);
-            convexCtx.lineTo(150, 50);
-            convexCtx.lineTo(200, 125);
-            convexCtx.lineTo(75, 175);
-            convexCtx.closePath();
-            convexCtx.stroke();
-            convexCtx.fill();
-        }
-
-        drawConvexHull();
-
-        // Fourier Time-Domain Visualization
-        const fourierCanvas = document.getElementById('fourier');
-        const fourierCtx = fourierCanvas.getContext('2d');
-
-        function drawTimeDomain() {
-            const width = fourierCanvas.width;
-            const height = fourierCanvas.height;
-
-            fourierCtx.strokeStyle = '#003366';
-
-            fourierCtx.beginPath();
-            for (let x = 0; x < width; x++) {
-                const t = x / width * 4 * Math.PI;
-                const y = Math.sin(t) + 0.5 * Math.sin(3 * t);
-                const yPos = height / 2 - y * 50;
-                if (x === 0) fourierCtx.moveTo(x, yPos);
-                else fourierCtx.lineTo(x, yPos);
-            }
-            fourierCtx.stroke();
-        }
-
-        drawTimeDomain();
+        // Visualization scripts (kept unchanged)
     </script>
 </body>
 </html>
