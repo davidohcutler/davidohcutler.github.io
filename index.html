@@ -71,7 +71,8 @@
     nav a.active { background: rgba(0,91,153,.12); border-left: 3px solid var(--accent); padding-left: calc(.5rem - 3px + .5rem); }
 
     /* Content */
-    .content { margin-left: 288px; padding: 2rem; width: 100%; }
+    .content { margin-left: 288px; padding: 2rem; /* width:auto by default to prevent horizontal overflow */ }
+    body { overflow-x: hidden; }
     .section { margin: 0 0 2rem; }
     .section h2 {
       font-size: 1.25rem; font-weight: 700; letter-spacing: .02em;
@@ -87,22 +88,15 @@
     .about { display: grid; grid-template-columns: 280px 1fr; gap: 1rem; align-items: start; }
     .portrait { width: 100%; height: auto; border-radius: 8px; border: 1px solid var(--ink); }
 
-    /* Papers lists — numbered but bulletless */
-    ol.pubs, ol.mans { counter-reset: item; padding-left: 0; margin: 0; }
-    ol.pubs li, ol.mans li { list-style: none; position: relative; padding-left: 2.4rem; margin: .9rem 0; }
-    ol.pubs li::before, ol.mans li::before {
-      counter-increment: item; content: "[" counter(item) "]";
-      position: absolute; left: 0; top: 0; color: var(--muted);
-      font-variant-numeric: tabular-nums; opacity: .9;
-    }
-    .pub .title { font-style: italic; }
-
-    ul.tight li { margin: .25rem 0; }
+    .paper-list p, .simple-list p { margin: .6rem 0; }
 
     .grid-photos { display: flex; flex-wrap: wrap; gap: .75rem; }
     .grid-photos img { width: 300px; height: auto; border: 1px solid var(--ink); border-radius: 6px; }
 
     footer { margin-top: 2rem; font-size: .95rem; color: var(--muted); }
+
+    /* Top progress bar */
+    .progress { position: fixed; top: 0; left: 0; height: 3px; width: 0; background: var(--accent); z-index: 20; }
 
     /* Buttons */
     .btn {
@@ -173,19 +167,19 @@
 
     <section id="papers" class="section prose">
       <h2>Papers</h2>
-      <h3>Published / accepted</h3>
-      <ol class="pubs">
-        <li class="pub">
-          <span class="title">The Hausdorff distance and metrics on toric singularity types</span>
+      <h3>Research publications</h3>
+      <div class="paper-list">
+        <p>
+          <span class="title"><em>The Hausdorff distance and metrics on toric singularity types</em></span>
           (with A. Aitokhuehi, B. Braiman, T. Darvas, M. Deaton, P. Gupta, J. Horsley, V. Pidaparthy, J. Tang),
           to appear in <em>Bull. Sci. Math.</em>,
           <a href="https://arxiv.org/abs/2411.11246" target="_blank" rel="noopener">arXiv:2411.11246</a>.
-        </li>
-      </ol>
-      <h3>Manuscripts</h3>
-      <ol class="mans">
-        <li class="pub"><span class="title">Cutting a pancake using an exotic knife</span> (with N. J. A. Sloane), in preparation.</li>
-      </ol>
+        </p>
+      </div>
+      <h3>Manuscripts, other papers, etc.</h3>
+      <div class="paper-list">
+        <p><span class="title"><em>Cutting a pancake using an exotic knife</em></span> (with N. J. A. Sloane), in preparation.</p>
+      </div>
     </section>
 
     
