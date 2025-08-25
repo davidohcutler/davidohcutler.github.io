@@ -74,9 +74,10 @@
     .content { margin-left: 288px; padding: 2rem; width: 100%; }
     .section { margin: 0 0 2rem; }
     .section h2 {
-      font-size: 1.3rem; font-weight: 700;
-      padding-bottom: .4rem; border-bottom: 1px solid var(--ink);
-      margin-bottom: .75rem; letter-spacing: .02em;
+      font-size: 1.25rem; font-weight: 700; letter-spacing: .02em;
+      margin: 0 0 .9rem;
+      background: linear-gradient(to right, rgba(0,91,153,.12), rgba(0,91,153,0));
+      padding: .45rem .6rem; border-radius: 8px;
     }
     .section h3 { font-size: 1.05rem; margin: 1rem 0 .4rem; color: var(--muted); }
     .prose { max-width: 900px; }
@@ -86,11 +87,16 @@
     .about { display: grid; grid-template-columns: 280px 1fr; gap: 1rem; align-items: start; }
     .portrait { width: 100%; height: auto; border-radius: 8px; border: 1px solid var(--ink); }
 
-    /* Academic lists: hanging indent for publications */
-    ol.pubs { padding-left: 1.4rem; }
-    ol.pubs li { margin: .65rem 0; }
-    .pub { text-indent: -1.2rem; padding-left: 1.2rem; }
+    /* Papers lists — numbered but bulletless */
+    ol.pubs, ol.mans { counter-reset: item; padding-left: 0; margin: 0; }
+    ol.pubs li, ol.mans li { list-style: none; position: relative; padding-left: 2.4rem; margin: .9rem 0; }
+    ol.pubs li::before, ol.mans li::before {
+      counter-increment: item; content: "[" counter(item) "]";
+      position: absolute; left: 0; top: 0; color: var(--muted);
+      font-variant-numeric: tabular-nums; opacity: .9;
+    }
     .pub .title { font-style: italic; }
+
     ul.tight li { margin: .25rem 0; }
 
     .grid-photos { display: flex; flex-wrap: wrap; gap: .75rem; }
@@ -126,6 +132,7 @@
   </style>
 </head>
 <body>
+  <div class="progress"></div>
   <aside class="sidebar">
     <div class="brand">
       <h1>David Owen Horace Cutler</h1>
@@ -176,9 +183,9 @@
         </li>
       </ol>
       <h3>Manuscripts</h3>
-      <ul class="tight">
+      <ol class="mans">
         <li class="pub"><span class="title">Cutting a pancake using an exotic knife</span> (with N. J. A. Sloane), in preparation.</li>
-      </ul>
+      </ol>
     </section>
 
     
@@ -230,6 +237,20 @@
         });
       }, {rootMargin: '-50% 0px -45% 0px', threshold: [0, 1]});
       document.querySelectorAll('main .section').forEach(sec=>observer.observe(sec));
+    })();
+  </script>
+  <script>
+    // Reading progress bar (tiny, framework-free)
+    (function(){
+      const bar = document.querySelector('.progress');
+      const update = () => {
+        const d = document.documentElement;
+        const pct = (d.scrollTop / (d.scrollHeight - d.clientHeight)) * 100;
+        bar.style.width = pct + '%';
+      };
+      addEventListener('scroll', update, { passive: true });
+      addEventListener('resize', update);
+      update();
     })();
   </script>
   </main>
