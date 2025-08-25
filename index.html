@@ -1,206 +1,219 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>David Owen Horace Cutler | Math Research</title>
-    <style>
-        /* General Styles */
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>David Owen Horace Cutler | Mathematics</title>
+  <style>
+    /* === Minimal, academic, and smooth — close to current style === */
+    :root {
+      --bg: #FDF6E3;          /* warm off‑white */
+      --ink: #003366;         /* deep blue */
+      --accent: #005B99;      /* accent blue */
+      --rule: rgba(0, 51, 102, 0.35);
+      --muted: rgba(0, 51, 102, 0.8);
+      --radius: 10px;
+    }
 
-        body {
-            font-family: 'Courier New', Courier, monospace;
-            background-color: #FDF6E3; /* Warm off-white */
-            color: #003366; /* Soft blue */
-            display: flex;
-            min-height: 100vh;
-        }
+    * { box-sizing: border-box; }
+    html, body { height: 100%; }
+    body {
+      margin: 0;
+      display: flex;
+      min-height: 100vh;
+      font-family: "Courier New", Courier, ui-monospace, Menlo, monospace;
+      background: var(--bg);
+      color: var(--ink);
+      line-height: 1.5;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+    }
 
-        a {
-            text-decoration: none;
-            color: #005B99; /* Accent blue */
-        }
+    a { color: var(--accent); text-decoration: none; }
+    a:hover { text-decoration: underline; }
 
-        a:hover {
-            text-decoration: underline;
-        }
+    /* Subtle grid background */
+    body::before {
+      content: "";
+      position: fixed; inset: 0; z-index: -1;
+      background-image:
+        radial-gradient(circle, rgba(0,51,102,.14) 1px, transparent 1px),
+        radial-gradient(circle, rgba(0,51,102,.12) 1px, transparent 1px);
+      background-position: 0 0, 25px 25px;
+      background-size: 50px 50px;
+      opacity: 0.8;
+      pointer-events: none;
+    }
 
-        /* Sidebar */
-        .sidebar {
-            width: 300px;
-            height: 100vh;
-            position: fixed;
-            top: 0;
-            left: 0;
-            background-color: #FDF6E3;
-            border-right: 1px solid #005B99;
-            padding: 2rem 1rem;
-            display: flex;
-            flex-direction: column;
-            overflow-y: auto;
-        }
+    /* Sidebar */
+    .sidebar {
+      position: fixed; inset: 0 auto 0 0;
+      width: 288px;
+      border-right: 1px solid var(--rule);
+      background: var(--bg);
+      padding: 1.75rem 1rem 2rem;
+      display: flex; flex-direction: column; gap: 1rem;
+    }
+    .brand {
+      text-align: center;
+    }
+    .brand h1 { font-size: 1.35rem; margin: 0 0 .25rem; letter-spacing: .02em; }
+    .brand p { margin: 0; font-size: .95rem; color: var(--muted); }
 
-        .sidebar h1 {
-            font-size: 1.5rem;
-            color: #003366;
-            margin-bottom: 1rem;
-            text-align: center;
-        }
+    nav { margin-top: .75rem; }
+    nav a {
+      display: block; padding: .35rem .25rem; margin-bottom: .15rem;
+      text-transform: uppercase; font-size: .95rem; letter-spacing: .06em;
+      color: var(--ink);
+      border-radius: 6px;
+    }
+    nav a:hover { background: rgba(0, 91, 153, .06); text-decoration: none; }
 
-        .sidebar nav {
-            text-align: left;
-            margin-top: 1rem;
-        }
+    /* Content */
+    .content { margin-left: 288px; padding: 2rem; width: 100%; }
+    .section { margin: 0 0 2rem; }
+    .section h2 {
+      font-size: 1.3rem; font-weight: 700;
+      padding-bottom: .4rem; border-bottom: 1px solid var(--ink);
+      margin-bottom: .75rem; letter-spacing: .02em;
+    }
+    .prose { max-width: 900px; }
+    p { margin: 0 0 .9rem; font-size: 1rem; }
 
-        .sidebar nav a {
-            display: block;
-            margin-bottom: 0.5rem;
-            font-size: 1rem;
-            text-transform: uppercase;
-            color: #003366;
-        }
+    /* Media objects */
+    .about {
+      display: grid; grid-template-columns: 280px 1fr; gap: 1rem; align-items: start;
+    }
+    .portrait { width: 100%; height: auto; border-radius: 8px; border: 1px solid var(--ink); }
 
-        /* Content Area */
-        .content {
-            margin-left: 300px;
-            padding: 2rem;
-            flex: 1;
-        }
+    /* Academic lists: hanging indent for publications */
+    ol.pubs { padding-left: 1.4rem; }
+    ol.pubs li { margin: .65rem 0; }
+    .pub { text-indent: -1.2rem; padding-left: 1.2rem; }
+    .pub .title { font-style: italic; }
 
-        .section {
-            margin-bottom: 2rem;
-        }
+    ul.tight li { margin: .25rem 0; }
 
-        .section h2 {
-            font-size: 1.5rem;
-            margin-bottom: 0.5rem;
-            border-bottom: 1px solid #003366;
-            padding-bottom: 0.5rem;
-            color: #003366;
-        }
+    .grid-photos { display: flex; flex-wrap: wrap; gap: .75rem; }
+    .grid-photos img {
+      width: 300px; height: auto; border: 1px solid var(--ink);
+      border-radius: 6px;
+    }
 
-        .section p {
-            font-size: 1rem;
-            margin-bottom: 1rem;
-        }
+    footer { margin-top: 2rem; font-size: .95rem; color: var(--muted); }
 
-        .section canvas {
-            display: block;
-            margin: 1rem auto;
-            border: 1px solid #003366;
-        }
+    /* Responsive */
+    @media (max-width: 950px) {
+      .about { grid-template-columns: 1fr; }
+    }
+    @media (max-width: 760px) {
+      .sidebar { position: static; width: 100%; border-right: 0; border-bottom: 1px solid var(--rule); }
+      .content { margin: 0; padding: 1.25rem; }
+      nav { display: flex; overflow-x: auto; gap: .35rem; padding-bottom: .25rem; }
+      nav a { white-space: nowrap; }
+    }
 
-        .cat-photos img {
-            width: 300px;
-            margin: 10px;
-            border: 1px solid #003366;
-            border-radius: 5px;
-        }
-
-        /* Footer */
-        footer {
-            margin-top: 2rem;
-            text-align: center;
-            font-size: 0.9rem;
-            color: #003366;
-        }
-
-        /* Grid Background */
-        body::before {
-            content: '';
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background-image: radial-gradient(circle, rgba(0, 51, 102, 0.2) 1px, transparent 1px),
-                              radial-gradient(circle, rgba(0, 51, 102, 0.2) 1px, transparent 1px);
-            background-size: 50px 50px;
-            z-index: -1;
-        }
-    </style>
+    /* Print-friendly tweaks */
+    @media print {
+      .sidebar { display: none; }
+      .content { margin: 0; }
+      a { text-decoration: none; color: inherit; }
+      body::before { display: none; }
+    }
+  </style>
 </head>
 <body>
-    <aside class="sidebar">
-        <h1>David Owen Horace Cutler</h1>
-        <center><p>Undergraduate student</p></center>
-        <nav>
-            <a href="#about-me">About me</a>
-            <a href="#research-interests">Research interests</a>
-            <a href="#publications">Publications</a>
-            <a href="#notes-and-talks">Notes and talks</a>
-            <a href="#cat-photos">Cat photos</a>
-            <a href="#contact">Contact</a>
-        </nav>
-    </aside>
+  <aside class="sidebar">
+    <div class="brand">
+      <h1>David Owen Horace Cutler</h1>
+      <p>Undergraduate student</p>
+    </div>
+    <nav>
+      <a href="#about-me">About me</a>
+      <a href="#research-interests">Research interests</a>
+      <a href="#publications">Publications</a>
+      <a href="#manuscripts">Manuscripts</a>
+      <a href="#notes-and-talks">Notes and talks</a>
+      <a href="#cat-photos">Cat photos</a>
+      <a href="#contact">Contact</a>
+    </nav>
+  </aside>
 
-    <main class="content">
-        <section id="about-me" class="section">
-            <h2>About Me</h2>
-            <div style="display: flex; align-items: flex-start; gap: 1rem;">
-                <img src="me.png" alt="me" style="width: 300px; height: auto; border-radius: 8px; border: 1px solid #003366;">
-                <div>
-                    <p>Hi! My name is David Owen Horace Cutler. I am an undergraduate student studying mathematics at Tufts University. I enjoy geometry.</p> 
-                    <p>Outside of math, I hike and listen to a lot of music. I am also a very big fan of <a href="https://en.wikipedia.org/wiki/Cat">cats</a>; you can see mine below!</p>
-                    <p>I won the <a href="https://goldwaterscholarship.gov/" download>Goldwater Scholarship</a> recently, which is cool.</p>
-                    <p><a href="mycv.pdf" download>Download my CV</a> - updated Jun. 2025</p>
-                    <p><strong>My schedule:</strong></p>
-                    <ul>
-                        <li>Rutgers DIMACS REU with <a href="https://sites.math.rutgers.edu/~cl1412/">Professor Chi Li</a>, May 27th-July 20th</li>
-                        <li>UC San Diego Research Mini-course in Complex Variables and Complex Geometry, July 21-26th</li>
-                    </ul>
-                </div>
-            </div>
-        </section>
+  <main class="content">
+    <section id="about-me" class="section prose">
+      <h2>About me</h2>
+      <div class="about">
+        <img class="portrait" src="me.png" alt="Portrait of David Cutler" />
+        <div>
+          <p>Hi! I’m David Cutler, an undergraduate studying mathematics at Tufts University. I enjoy complex and metric geometry and related areas.</p>
+          <p>Outside of math, I hike and listen to a lot of music. I’m also a very big fan of <a href="https://en.wikipedia.org/wiki/Cat">cats</a>—you can see mine below.</p>
+          <p>
+            <a href="newCV-8.pdf" download>Download my CV</a> (updated Aug. 2025)
+          </p>
 
-        <section id="research-interests" class="section">
-            <h2>Research interests</h2>
-            <p>Complex geometry, metric geometry</p>
-        </section>
+          
+        </div>
+      </div>
+    </section>
 
-        <section id="publications" class="section">
-            <h2>Publications</h2>
-            <p>
-                The Hausdorff distance and metrics on toric singularity types (with A. Aitokhuehi, B. Braiman, T. Darvas, R. Deaton, P. Gupta, J. Horsley, V. Pidaparthy, J. Tang), preprint, 
-                <a href="https://arxiv.org/abs/2411.11246" target="_blank" rel="noopener noreferrer">arxiv:2411.11246</a>
-            </p>
-        </section>
+    <section id="research-interests" class="section prose">
+      <h2>Research interests</h2>
+      <p>Complex geometry, metric geometry, geometric group theory.</p>
+    </section>
 
-        <section id="notes-and-talks" class="section">
-            <h2>Notes and talks</h2>
-            <p>
-                <a href="https://meetings.ams.org/math/jmm2025/meetingapp.cgi/Paper/42612" target="_blank">
-                    <em>Hölder estimates for the Hausdorff distance and a quasi-metric</em>
-                </a>,
-                AMS-MAA-SIAM Special Session on Research in Mathematics by Undergraduates, Joint Mathematics Meetings, Jan. 2025.
-                [<a href="Hölder_estimates_for_the_Hausdorff_distance_and_a_quasi_metric.pdf" download>Download PDF</a>]
-            </p>
-            <p>
-                Manifolds, mixed volumes, and a quasi-Metric, Tufts Math Monday Meeting, Oct. 2024
-            </p>
-            <p>
-                Counterexamples in measure, Tufts Math Monday Meeting, Mar. 2024
-            </p>
-        </section>
+    <section id="publications" class="section prose">
+      <h2>Publications</h2>
+      <ol class="pubs">
+        <li class="pub">
+          <span class="title">The Hausdorff distance and metrics on toric singularity types</span>
+          (with A. Aitokhuehi, B. Braiman, T. Darvas, M. Deaton, P. Gupta, J. Horsley, V. Pidaparthy, J. Tang),
+          to appear in <em>Bull. Sci. Math.</em>,
+          <a href="https://arxiv.org/abs/2411.11246" target="_blank" rel="noopener">arXiv:2411.11246</a>.
+        </li>
+      </ol>
+    </section>
 
-        <section id="cat-photos" class="section">
-            <h2>Cat Photos</h2>
-            <p>Here are some photos of my cats. I intend to update them frequently.</p>
-            <div class="cat-photos">
-                <img src="cat1.png" alt="Cat 1" width="225" height="300">
-                <img src="cat2.png" alt="Cat 2" width="225" height="300">
-                <img src="cat3.png" alt="Cat 3" width="225" height="300">
-            </div>
-        </section>
+    <section id="manuscripts" class="section prose">
+      <h2>Manuscripts</h2>
+      <ul class="tight">
+        <li class="pub"><span class="title">Cutting a pancake using an exotic knife</span> (with N. J. A. Sloane), in preparation.</li>
+      </ul>
+    </section>
 
-        <section id="contact" class="section">
-            <h2>Contact</h2>
-            <p>If you’d like to get in touch, email me at <a href="mailto:david.cutler@tufts.edu">david.cutler@tufts.edu</a>.</p>
-        </section>
-    </main>
+    <section id="notes-and-talks" class="section prose">
+      <h2>Notes and talks</h2>
+      <ul class="tight">
+        <li>
+          <a href="https://meetings.ams.org/math/jmm2025/meetingapp.cgi/Paper/42612" target="_blank" rel="noopener"><em>Hölder estimates for the Hausdorff distance and a quasi-metric</em></a>,
+          AMS–MAA–SIAM Special Session on Research in Mathematics by Undergraduates, Joint Mathematics Meetings, Jan. 2025. [
+          <a href="H%C3%B6lder_estimates_for_the_Hausdorff_distance_and_a_quasi_metric.pdf" download>PDF</a> ]
+        </li>
+        <li>Manifolds, mixed volumes, and a quasi-metric, Tufts Math Monday Meeting, Oct. 2024.</li>
+        <li>Counterexamples in measure, Tufts Math Monday Meeting, Mar. 2024.</li>
+      </ul>
+    </section>
+
+    
+    
+    
+    <section id="cat-photos" class="section prose">
+      <h2>Cat photos</h2>
+      <p>Here are some photos of my cats. I intend to update them frequently.</p>
+      <div class="grid-photos">
+        <img src="cat1.png" alt="Cat on a windowsill" />
+        <img src="cat2.png" alt="Cat playing with a string" />
+        <img src="cat3.png" alt="Cat curled up napping" />
+      </div>
+    </section>
+
+    <section id="contact" class="section prose">
+      <h2>Contact</h2>
+      <p>Email: <a href="mailto:david.cutler@tufts.edu">david.cutler@tufts.edu</a></p>
+          </section>
+
+    <footer class="prose">
+      <p>Last updated: Aug. 23, 2025.</p>
+    </footer>
+  </main>
 </body>
 </html>
