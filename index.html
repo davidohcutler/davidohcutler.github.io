@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>david owen horace cutler | mathematics</title>
   <style>
-    /* === monochrome, zine-ish, still readable === */
+    /* === monochrome, zine-ish, no shadows === */
     :root {
       --bg: #fdfdfd;          /* off-white paper */
       --ink: #000000;         /* black ink */
@@ -41,7 +41,7 @@
       text-decoration: underline;
     }
 
-    /* photocopy-ish texture */
+    /* photocopy-ish texture (still subtle) */
     body::before {
       content: "";
       position: fixed;
@@ -162,20 +162,22 @@
       font-size: 1rem;
     }
 
-    /* Media objects */
+    /* about layout */
     .about {
       display: grid;
-      grid-template-columns: 280px 1fr;
+      grid-template-columns: 1.2fr 1.6fr;
       gap: 1.1rem;
       align-items: flex-start;
     }
 
     .portrait {
       width: 100%;
-      height: auto;
+      max-width: 460px;
+      aspect-ratio: 16 / 9;   /* wider, horizontal */
+      object-fit: contain;    /* for whiteboard drawing */
+      background: #ffffff;
       border-radius: 0;
       border: 1px solid var(--ink);
-      box-shadow: 4px 4px 0 rgba(0,0,0,0.45);
     }
 
     .paper-list p,
@@ -194,7 +196,6 @@
       height: auto;
       border: 1px solid var(--ink);
       border-radius: 0;
-      box-shadow: 3px 3px 0 rgba(0,0,0,0.45);
     }
 
     .hint {
@@ -246,10 +247,34 @@
       outline-offset: 2px;
     }
 
+    /* triangle svg wrapper */
+    .triangle-wrap {
+      margin-top: 1rem;
+      margin-bottom: .5rem;
+      max-width: 420px;
+    }
+
+    .triangle-wrap svg {
+      width: 100%;
+      height: auto;
+      display: block;
+      /* no shadow, just lines */
+    }
+
+    .triangle-caption {
+      font-size: .9rem;
+      color: var(--muted);
+      margin-top: .3rem;
+    }
+
     /* Responsive */
     @media (max-width: 950px) {
       .about {
         grid-template-columns: 1fr;
+      }
+
+      .portrait {
+        max-width: 100%;
       }
     }
 
@@ -301,7 +326,6 @@
       <a href="#research-interests">research interests</a>
       <a href="#papers">papers</a>
       <a href="#notes-and-talks">notes and talks</a>
-      <a href="#cat-photos">cat photos</a>
       <a href="#contact">contact</a>
     </nav>
   </aside>
@@ -310,23 +334,65 @@
     <section id="about-me" class="section prose">
       <h2>about me</h2>
       <div class="about">
-        <img class="portrait" src="me.png" alt="portrait of david owen horace cutler"/>
+        <img class="portrait" src="me.png" alt="meow"/>
         <div>
-          <p>Hi! I’m David (Owen Horace) Cutler, an undergraduate studying mathematics at Tufts University.</p>
-          <p>My interests are geometric and somewhat diverse; much of my research thus far has revolved either around metric-geometric problems emerging from complex geometry, or around existence problems within complex geometry concerning metrics with prescribed behavior.</p>
-          <p>I write sometimes on problems in recreational mathematics, and have contributed some simpler combinatorial work to the <a href="https://oeis.org/search?q=david+cutler&language=english&go=Search">OEIS</a>.</p>
-          <p>Outside of math, I hike, write poetry, and listen to a lot of music. I’m also a very big fan of <a href="https://en.wikipedia.org/wiki/Cat">cats</a> — you can see mine below!</p>
-          <p>
-            <a class="btn" href="Cutler_CV_2025-08.pdf" download="Cutler_CV_2025-08.pdf" type="application/pdf">download cv</a>
-            <span style="margin-left:.5rem; color: var(--muted); font-size:.95rem;">updated aug. 2025</span>
-          </p>
+          <p>hi! i’m david (owen horace) cutler, an undergraduate studying mathematics at tufts university.</p>
         </div>
       </div>
     </section>
 
     <section id="research-interests" class="section prose">
       <h2>research interests</h2>
-      <p>Complex geometry, metric geometry, geometric group theory</p>
+      <p>i am interested in this little directed triangle:</p>
+
+      <div class="triangle-wrap">
+        <svg viewBox="0 0 260 220" aria-labelledby="triangle-title triangle-desc" role="img">
+          <title id="triangle-title">triangle of research interests</title>
+          <desc id="triangle-desc">
+            a triangle with vertices complex geometry, convex geometry, and metric geometry,
+            with two-way arrows along each edge.
+          </desc>
+
+          <defs>
+            <!-- arrowhead marker -->
+            <marker id="arrowhead" viewBox="0 0 10 10" refX="10" refY="5"
+                    markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+              <path d="M 0 0 L 10 5 L 0 10 z" fill="black" />
+            </marker>
+          </defs>
+
+          <!-- triangle edges with arrows at both ends -->
+          <line x1="130" y1="30"  x2="30"  y2="180"
+                stroke="black" stroke-width="1.6"
+                marker-start="url(#arrowhead)" marker-end="url(#arrowhead)" />
+          <line x1="30"  y1="180" x2="230" y2="180"
+                stroke="black" stroke-width="1.6"
+                marker-start="url(#arrowhead)" marker-end="url(#arrowhead)" />
+          <line x1="230" y1="180" x2="130" y2="30"
+                stroke="black" stroke-width="1.6"
+                marker-start="url(#arrowhead)" marker-end="url(#arrowhead)" />
+
+          <!-- vertices -->
+          <circle cx="130" cy="30"  r="3" fill="black" />
+          <circle cx="30"  cy="180" r="3" fill="black" />
+          <circle cx="230" cy="180" r="3" fill="black" />
+
+          <!-- labels -->
+          <text x="130" y="18" text-anchor="middle" font-size="10">
+            complex geometry
+          </text>
+          <text x="18" y="196" text-anchor="start" font-size="10">
+            convex geometry
+          </text>
+          <text x="242" y="196" text-anchor="end" font-size="10">
+            metric geometry
+          </text>
+        </svg>
+
+        <p class="triangle-caption">
+          most things i like live somewhere along these arrows.
+        </p>
+      </div>
     </section>
 
     <section id="papers" class="section prose">
@@ -355,24 +421,14 @@
           AMS–MAA–SIAM Special Session on Research in Mathematics by Undergraduates, Joint Mathematics Meetings, Jan. 2025
           [ <a href="H%C3%B6lder_estimates_for_the_Hausdorff_distance_and_a_quasi_metric.pdf" download>PDF</a> ]
         </p>
-        <p>Manifolds, mixed volumes, and a quasi-metric, Tufts Math Monday Meeting, Oct. 2024</p>
-        <p>Counterexamples in measure, Tufts Math Monday Meeting, Mar. 2024</p>
-      </div>
-    </section>
-
-    <section id="cat-photos" class="section prose">
-      <h2>cat photos</h2>
-      <p>Here are some photos of my cats. I intend to update them frequently.</p>
-      <div class="grid-photos">
-        <img src="cat1.png" alt="cat on a windowsill" />
-        <img src="cat2.png" alt="cat playing with a string" />
-        <img src="cat3.png" alt="cat curled up napping" />
+        <p>manifolds, mixed volumes, and a quasi-metric, tufts math monday meeting, oct. 2024</p>
+        <p>counterexamples in measure, tufts math monday meeting, mar. 2024</p>
       </div>
     </section>
 
     <section id="contact" class="section prose">
       <h2>contact</h2>
-      <p>Email: <a href="mailto:david.cutler@tufts.edu">david.cutler@tufts.edu</a></p>
+      <p>email: <a href="mailto:david.cutler@tufts.edu">david.cutler@tufts.edu</a></p>
     </section>
 
     <footer class="prose">
