@@ -170,6 +170,12 @@
       align-items: flex-start;
     }
 
+    .about-image {
+      display: flex;
+      flex-direction: column;
+      gap: .35rem;
+    }
+
     .portrait {
       width: 100%;
       max-width: 100%;
@@ -178,6 +184,12 @@
       background: #ffffff;
       border-radius: 0;
       border: 1px solid var(--ink);
+    }
+
+    .photo-caption {
+      font-size: .9rem;
+      color: var(--muted);
+      font-style: italic;
     }
 
     .paper-list p,
@@ -333,7 +345,10 @@
     <section id="about-me" class="section prose">
       <h2>about me</h2>
       <div class="about">
-        <img class="portrait" src="me.png" alt="meow"/>
+        <div class="about-image">
+          <img class="portrait" src="me.png" alt="meow"/>
+          <p class="photo-caption">a row of the mayer–vietoris sequence for cat-mology</p>
+        </div>
         <div>
           <p>hi! i’m david owen horace cutler, an undergraduate studying mathematics at tufts university.</p>
           <p class="hint">
