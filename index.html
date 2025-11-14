@@ -1,23 +1,24 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>David Owen Horace Cutler | Mathematics</title>
+  <title>david owen horace cutler | mathematics</title>
   <style>
-    /* === Minimal, academic, and smooth — close to current style === */
+    /* === monochrome, zine-ish, still readable === */
     :root {
-      --bg: #FDF6E3;          /* warm off‑white */
-      --ink: #003366;         /* deep blue */
-      --accent: #005B99;      /* accent blue */
-      --rule: rgba(0, 51, 102, 0.35);
-      --muted: rgba(0, 51, 102, 0.8);
-      --radius: 10px;
+      --bg: #fdfdfd;          /* off-white paper */
+      --ink: #000000;         /* black ink */
+      --accent: #000000;      /* keep it all black */
+      --rule: rgba(0, 0, 0, 0.25);
+      --muted: #555555;
+      --radius: 0;
     }
 
     * { box-sizing: border-box; }
     html, body { height: 100%; }
     html { scroll-behavior: smooth; }
+
     body {
       margin: 0;
       display: flex;
@@ -28,92 +29,253 @@
       line-height: 1.55;
       -webkit-font-smoothing: antialiased;
       -moz-osx-font-smoothing: grayscale;
+      overflow-x: hidden;
+      position: relative;
     }
 
-    a { color: var(--accent); text-decoration: none; }
-    a:hover { text-decoration: underline; }
+    a {
+      color: var(--accent);
+      text-decoration: none;
+    }
+    a:hover {
+      text-decoration: underline;
+    }
 
-    /* Subtle grid background */
+    /* photocopy-ish texture */
     body::before {
       content: "";
-      position: fixed; inset: 0; z-index: -1;
+      position: fixed;
+      inset: 0;
+      z-index: -1;
       background-image:
-        radial-gradient(circle, rgba(0,51,102,.12) 1px, transparent 1px),
-        radial-gradient(circle, rgba(0,51,102,.10) 1px, transparent 1px);
-      background-position: 0 0, 25px 25px;
-      background-size: 50px 50px;
-      opacity: .9;
+        repeating-linear-gradient(
+          0deg,
+          rgba(0,0,0,0.045) 0,
+          rgba(0,0,0,0.045) 1px,
+          transparent 1px,
+          transparent 3px
+        ),
+        repeating-linear-gradient(
+          90deg,
+          rgba(0,0,0,0.025) 0,
+          rgba(0,0,0,0.025) 1px,
+          transparent 1px,
+          transparent 4px
+        );
+      mix-blend-mode: multiply;
       pointer-events: none;
     }
 
     /* Sidebar */
     .sidebar {
-      position: fixed; inset: 0 auto 0 0;
+      position: fixed;
+      inset: 0 auto 0 0;
       width: 288px;
       border-right: 1px solid var(--rule);
       background: var(--bg);
       padding: 1.75rem 1rem 2rem;
-      display: flex; flex-direction: column; gap: 1rem;
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
     }
-    .brand { text-align: center; }
-    .brand h1 { font-size: 1.35rem; margin: 0 0 .25rem; letter-spacing: .02em; }
-    .brand p { margin: 0; font-size: .95rem; color: var(--muted); }
 
-    nav { margin-top: .75rem; }
-    nav a {
-      display: block; padding: .35rem .5rem; margin-bottom: .15rem;
-      text-transform: uppercase; font-size: .95rem; letter-spacing: .06em;
-      color: var(--ink);
-      border-radius: 6px;
-      transition: background .2s ease, color .2s ease;
+    .brand {
+      text-align: center;
     }
-    nav a:hover { background: rgba(0, 91, 153, .06); text-decoration: none; }
-    nav a.active { background: rgba(0,91,153,.12); border-left: 3px solid var(--accent); padding-left: calc(.5rem - 3px + .5rem); }
+
+    .brand h1 {
+      font-size: 1.3rem;
+      margin: 0 0 .2rem;
+      letter-spacing: .08em;
+      text-transform: lowercase;
+    }
+
+    .brand p {
+      margin: 0;
+      font-size: .9rem;
+      color: var(--muted);
+      text-transform: lowercase;
+    }
+
+    nav {
+      margin-top: .9rem;
+      font-size: .85rem;
+      text-transform: lowercase;
+    }
+
+    nav a {
+      display: block;
+      padding: .25rem .35rem;
+      margin-bottom: .1rem;
+      letter-spacing: .08em;
+      color: var(--ink);
+      border-radius: 0;
+      border-left: 2px solid transparent;
+      transition: background .15s ease, border-color .15s ease;
+    }
+
+    nav a:hover {
+      background: rgba(0,0,0,0.05);
+    }
+
+    nav a.active {
+      border-left-color: var(--ink);
+      background: rgba(0,0,0,0.08);
+    }
 
     /* Content */
-    .content { margin-left: 288px; padding: 2rem; /* width:auto by default to prevent horizontal overflow */ }
-    body { overflow-x: hidden; }
-    .section { margin: 0 0 2rem; }
-    .section h2 {
-      font-size: 1.25rem; font-weight: 700; letter-spacing: .02em;
-      margin: 0 0 .9rem;
-      background: linear-gradient(to right, rgba(0,91,153,.12), rgba(0,91,153,0));
-      padding: .45rem .6rem; border-radius: 8px;
+    .content {
+      margin-left: 288px;
+      padding: 2rem;
     }
-    .section h3 { font-size: 1.05rem; margin: 1rem 0 .4rem; color: var(--muted); }
-    .prose { max-width: 900px; }
-    p { margin: 0 0 .9rem; font-size: 1rem; }
+
+    .section {
+      margin: 0 0 2.2rem;
+    }
+
+    .section h2 {
+      font-size: 1.1rem;
+      font-weight: 600;
+      letter-spacing: .12em;
+      text-transform: lowercase;
+      margin: 0 0 .75rem;
+      display: inline-block;
+      padding: .15rem .35rem .15rem .15rem;
+      border-bottom: 1px solid var(--ink);
+      transform: rotate(-0.4deg);
+    }
+
+    .section h3 {
+      font-size: 1rem;
+      margin: 1rem 0 .4rem;
+      color: var(--muted);
+      text-transform: lowercase;
+      letter-spacing: .08em;
+    }
+
+    .prose {
+      max-width: 900px;
+    }
+
+    p {
+      margin: 0 0 .9rem;
+      font-size: 1rem;
+    }
 
     /* Media objects */
-    .about { display: grid; grid-template-columns: 280px 1fr; gap: 1rem; align-items: start; }
-    .portrait { width: 100%; height: auto; border-radius: 8px; border: 1px solid var(--ink); }
+    .about {
+      display: grid;
+      grid-template-columns: 280px 1fr;
+      gap: 1.1rem;
+      align-items: flex-start;
+    }
 
-    .paper-list p, .simple-list p { margin: .6rem 0; }
+    .portrait {
+      width: 100%;
+      height: auto;
+      border-radius: 0;
+      border: 1px solid var(--ink);
+      box-shadow: 4px 4px 0 rgba(0,0,0,0.45);
+    }
 
-    .grid-photos { display: flex; flex-wrap: wrap; gap: .75rem; }
-    .grid-photos img { width: 300px; height: auto; border: 1px solid var(--ink); border-radius: 6px; }
+    .paper-list p,
+    .simple-list p {
+      margin: .6rem 0;
+    }
 
-    footer { margin-top: 2rem; font-size: .95rem; color: var(--muted); }
+    .grid-photos {
+      display: flex;
+      flex-wrap: wrap;
+      gap: .75rem;
+    }
+
+    .grid-photos img {
+      width: 300px;
+      height: auto;
+      border: 1px solid var(--ink);
+      border-radius: 0;
+      box-shadow: 3px 3px 0 rgba(0,0,0,0.45);
+    }
+
+    .hint {
+      color: var(--muted);
+      font-size: .9rem;
+    }
+
+    footer {
+      margin-top: 2rem;
+      font-size: .9rem;
+      color: var(--muted);
+      border-top: 1px solid var(--rule);
+      padding-top: .5rem;
+      text-transform: lowercase;
+    }
 
     /* Top progress bar */
-    .progress { position: fixed; top: 0; left: 0; height: 3px; width: 0; background: var(--accent); z-index: 20; }
+    .progress {
+      position: fixed;
+      top: 0;
+      left: 0;
+      height: 3px;
+      width: 0;
+      background: var(--ink);
+      z-index: 20;
+    }
 
     /* Buttons */
     .btn {
-      display: inline-block; border: 1px solid var(--ink);
-      padding: .45rem .8rem; border-radius: 8px; font-weight: 600;
-      background: linear-gradient(to bottom, rgba(0,91,153,.08), rgba(0,91,153,.02));
+      display: inline-block;
+      border: 1px solid var(--ink);
+      padding: .35rem .75rem;
+      border-radius: 0;
+      font-weight: 700;
+      font-size: .9rem;
+      text-transform: lowercase;
+      background: transparent;
+      letter-spacing: .06em;
+      cursor: pointer;
     }
-    .btn:hover { background: rgba(0,91,153,.12); text-decoration: none; }
-    .btn:focus-visible { outline: 2px dashed var(--accent); outline-offset: 2px; }
+
+    .btn:hover {
+      background: rgba(0,0,0,0.06);
+      text-decoration: none;
+    }
+
+    .btn:focus-visible {
+      outline: 1px dashed var(--ink);
+      outline-offset: 2px;
+    }
 
     /* Responsive */
-    @media (max-width: 950px) { .about { grid-template-columns: 1fr; } }
+    @media (max-width: 950px) {
+      .about {
+        grid-template-columns: 1fr;
+      }
+    }
+
     @media (max-width: 760px) {
-      .sidebar { position: static; width: 100%; border-right: 0; border-bottom: 1px solid var(--rule); }
-      .content { margin: 0; padding: 1.25rem; }
-      nav { display: flex; overflow-x: auto; gap: .35rem; padding-bottom: .25rem; }
-      nav a { white-space: nowrap; }
+      .sidebar {
+        position: static;
+        width: 100%;
+        border-right: 0;
+        border-bottom: 1px solid var(--rule);
+      }
+
+      .content {
+        margin: 0;
+        padding: 1.25rem;
+      }
+
+      nav {
+        display: flex;
+        overflow-x: auto;
+        gap: .35rem;
+        padding-bottom: .25rem;
+      }
+
+      nav a {
+        white-space: nowrap;
+      }
     }
 
     /* Print */
@@ -122,54 +284,55 @@
       .content { margin: 0; }
       a { text-decoration: none; color: inherit; }
       body::before { display: none; }
+      .progress { display: none; }
     }
   </style>
 </head>
 <body>
   <div class="progress"></div>
+
   <aside class="sidebar">
     <div class="brand">
-      <h1>David Owen Horace Cutler</h1>
-      <p>Undergraduate student</p>
+      <h1>david owen horace cutler</h1>
+      <p>undergraduate student</p>
     </div>
     <nav>
-      <a href="#about-me">About me</a>
-      <a href="#research-interests">Research interests</a>
-      <a href="#papers">Papers</a>
-      <a href="#notes-and-talks">Notes and talks</a>
-      <a href="#cat-photos">Cat photos</a>
-      <a href="#contact">Contact</a>
+      <a href="#about-me">about me</a>
+      <a href="#research-interests">research interests</a>
+      <a href="#papers">papers</a>
+      <a href="#notes-and-talks">notes and talks</a>
+      <a href="#cat-photos">cat photos</a>
+      <a href="#contact">contact</a>
     </nav>
   </aside>
 
   <main class="content">
     <section id="about-me" class="section prose">
-      <h2>About me</h2>
+      <h2>about me</h2>
       <div class="about">
-        <img class="portrait" src="me.png" alt="Portrait of David Owen Horace Cutler"/>
+        <img class="portrait" src="me.png" alt="portrait of david owen horace cutler"/>
         <div>
           <p>Hi! I’m David (Owen Horace) Cutler, an undergraduate studying mathematics at Tufts University.</p>
           <p>My interests are geometric and somewhat diverse; much of my research thus far has revolved either around metric-geometric problems emerging from complex geometry, or around existence problems within complex geometry concerning metrics with prescribed behavior.</p>
           <p>I write sometimes on problems in recreational mathematics, and have contributed some simpler combinatorial work to the <a href="https://oeis.org/search?q=david+cutler&language=english&go=Search">OEIS</a>.</p>
           <p>Outside of math, I hike, write poetry, and listen to a lot of music. I’m also a very big fan of <a href="https://en.wikipedia.org/wiki/Cat">cats</a> — you can see mine below!</p>
           <p>
-            <a class="btn" href="Cutler_CV_2025-08.pdf" download="Cutler_CV_2025-08.pdf" type="application/pdf">Download CV</a>
-            <span style="margin-left:.5rem; color: var(--muted); font-size:.95rem;">updated Aug. 2025</span>
+            <a class="btn" href="Cutler_CV_2025-08.pdf" download="Cutler_CV_2025-08.pdf" type="application/pdf">download cv</a>
+            <span style="margin-left:.5rem; color: var(--muted); font-size:.95rem;">updated aug. 2025</span>
           </p>
-
-          
         </div>
       </div>
     </section>
 
     <section id="research-interests" class="section prose">
-      <h2>Research interests</h2>
+      <h2>research interests</h2>
       <p>Complex geometry, metric geometry, geometric group theory</p>
     </section>
 
     <section id="papers" class="section prose">
-      <h2>Papers</h2>
-      <h3>Research publications</h3>
+      <h2>papers</h2>
+
+      <h3>research publications</h3>
       <div class="paper-list">
         <p>
           <span class="title"><em>The Hausdorff distance and metrics on toric singularity types</em></span>
@@ -177,78 +340,76 @@
           <a href="https://arxiv.org/abs/2411.11246" target="_blank" rel="noopener">arXiv:2411.11246</a>
         </p>
       </div>
-      <h3>Manuscripts, other papers, etc.</h3>
+
+      <h3>manuscripts, other papers, etc.</h3>
       <div class="paper-list">
         <p><span class="title"><em>Cutting a pancake using an exotic knife</em></span> (with N. J. A. Sloane), in preparation</p>
       </div>
     </section>
 
-    
     <section id="notes-and-talks" class="section prose">
-  <h2>Notes and talks</h2>
-  <div class="simple-list">
-    <p>
-      <a href="https://meetings.ams.org/math/jmm2025/meetingapp.cgi/Paper/42612" target="_blank" rel="noopener"><em>Hölder estimates for the Hausdorff distance and a quasi-metric</em></a>,
-      AMS–MAA–SIAM Special Session on Research in Mathematics by Undergraduates, Joint Mathematics Meetings, Jan. 2025
-      [ <a href="H%C3%B6lder_estimates_for_the_Hausdorff_distance_and_a_quasi_metric.pdf" download>PDF</a> ]
-    </p>
-    <p>Manifolds, mixed volumes, and a quasi-metric, Tufts Math Monday Meeting, Oct. 2024</p>
-    <p>Counterexamples in measure, Tufts Math Monday Meeting, Mar. 2024</p>
-  </div>
-</section>
+      <h2>notes and talks</h2>
+      <div class="simple-list">
+        <p>
+          <a href="https://meetings.ams.org/math/jmm2025/meetingapp.cgi/Paper/42612" target="_blank" rel="noopener"><em>Hölder estimates for the Hausdorff distance and a quasi-metric</em></a>,
+          AMS–MAA–SIAM Special Session on Research in Mathematics by Undergraduates, Joint Mathematics Meetings, Jan. 2025
+          [ <a href="H%C3%B6lder_estimates_for_the_Hausdorff_distance_and_a_quasi_metric.pdf" download>PDF</a> ]
+        </p>
+        <p>Manifolds, mixed volumes, and a quasi-metric, Tufts Math Monday Meeting, Oct. 2024</p>
+        <p>Counterexamples in measure, Tufts Math Monday Meeting, Mar. 2024</p>
+      </div>
+    </section>
 
-    
-    
-    
     <section id="cat-photos" class="section prose">
-      <h2>Cat photos</h2>
+      <h2>cat photos</h2>
       <p>Here are some photos of my cats. I intend to update them frequently.</p>
       <div class="grid-photos">
-        <img src="cat1.png" alt="Cat on a windowsill" />
-        <img src="cat2.png" alt="Cat playing with a string" />
-        <img src="cat3.png" alt="Cat curled up napping" />
+        <img src="cat1.png" alt="cat on a windowsill" />
+        <img src="cat2.png" alt="cat playing with a string" />
+        <img src="cat3.png" alt="cat curled up napping" />
       </div>
     </section>
 
     <section id="contact" class="section prose">
-      <h2>Contact</h2>
+      <h2>contact</h2>
       <p>Email: <a href="mailto:david.cutler@tufts.edu">david.cutler@tufts.edu</a></p>
-          </section>
+    </section>
 
     <footer class="prose">
-      <p>Last updated: Aug. 23, 2025.</p>
+      <p>last updated: aug. 23, 2025.</p>
     </footer>
-  <script>
-    // Minimal JS: highlight active nav link while scrolling (no frameworks)
-    (function(){
-      const links = Array.from(document.querySelectorAll('.sidebar nav a'));
-      const map = Object.fromEntries(links.map(a => [a.getAttribute('href').slice(1), a]));
-      const observer = new IntersectionObserver((entries)=>{
-        entries.forEach(e=>{
-          if(e.isIntersecting){
-            const id = e.target.id;
-            links.forEach(l=>l.classList.toggle('active', l === map[id]));
-          }
-        });
-      }, {rootMargin: '-50% 0px -45% 0px', threshold: [0, 1]});
-      document.querySelectorAll('main .section').forEach(sec=>observer.observe(sec));
-    })();
-  </script>
-  <script>
-    // Reading progress bar (tiny, framework-free)
-    (function(){
-      const bar = document.querySelector('.progress');
-      const update = () => {
-        const d = document.documentElement;
-        const pct = (d.scrollTop / (d.scrollHeight - d.clientHeight)) * 100;
-        bar.style.width = pct + '%';
-      };
-      addEventListener('scroll', update, { passive: true });
-      addEventListener('resize', update);
-      update();
-    })();
-  </script>
-  </main>
 
+    <script>
+      // highlight active nav link while scrolling
+      (function(){
+        const links = Array.from(document.querySelectorAll('.sidebar nav a'));
+        const map = Object.fromEntries(links.map(a => [a.getAttribute('href').slice(1), a]));
+        const observer = new IntersectionObserver((entries)=>{
+          entries.forEach(e=>{
+            if(e.isIntersecting){
+              const id = e.target.id;
+              links.forEach(l=>l.classList.toggle('active', l === map[id]));
+            }
+          });
+        }, {rootMargin: '-50% 0px -45% 0px', threshold: [0, 1]});
+        document.querySelectorAll('main .section').forEach(sec=>observer.observe(sec));
+      })();
+    </script>
+
+    <script>
+      // reading progress bar
+      (function(){
+        const bar = document.querySelector('.progress');
+        const update = () => {
+          const d = document.documentElement;
+          const pct = (d.scrollTop / (d.scrollHeight - d.clientHeight)) * 100;
+          bar.style.width = pct + '%';
+        };
+        addEventListener('scroll', update, { passive: true });
+        addEventListener('resize', update);
+        update();
+      })();
+    </script>
+  </main>
 </body>
 </html>
