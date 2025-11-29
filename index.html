@@ -5,11 +5,10 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>david owen horace cutler | mathematics</title>
   <style>
-    /* === monochrome, zine-ish, no shadows === */
     :root {
-      --bg: #fdfdfd;          /* off-white paper */
-      --ink: #000000;         /* black ink */
-      --accent: #000000;      /* keep it all black */
+      --bg: #fdfdfd;
+      --ink: #000000;
+      --accent: #000000;
       --rule: rgba(0, 0, 0, 0.25);
       --muted: #555555;
       --radius: 0;
@@ -41,7 +40,6 @@
       text-decoration: underline;
     }
 
-    /* photocopy-ish texture (still subtle) */
     body::before {
       content: "";
       position: fixed;
@@ -66,7 +64,6 @@
       pointer-events: none;
     }
 
-    /* Sidebar */
     .sidebar {
       position: fixed;
       inset: 0 auto 0 0;
@@ -123,7 +120,6 @@
       background: rgba(0,0,0,0.08);
     }
 
-    /* Content */
     .content {
       margin-left: 288px;
       padding: 2rem;
@@ -162,7 +158,6 @@
       font-size: 1rem;
     }
 
-    /* about layout */
     .about {
       display: grid;
       grid-template-columns: minmax(0, 2.2fr) minmax(0, 1.2fr);
@@ -179,8 +174,8 @@
     .portrait {
       width: 100%;
       max-width: 100%;
-      aspect-ratio: 16 / 9;   /* wider, horizontal */
-      object-fit: contain;    /* for whiteboard drawing */
+      aspect-ratio: 16 / 9;
+      object-fit: contain;
       background: #ffffff;
       border-radius: 0;
       border: 1px solid var(--ink);
@@ -224,7 +219,6 @@
       text-transform: lowercase;
     }
 
-    /* Top progress bar */
     .progress {
       position: fixed;
       top: 0;
@@ -235,7 +229,6 @@
       z-index: 20;
     }
 
-    /* Buttons */
     .btn {
       display: inline-block;
       border: 1px solid var(--ink);
@@ -259,11 +252,10 @@
       outline-offset: 2px;
     }
 
-    /* triangle svg wrapper */
     .triangle-wrap {
       margin-top: 1rem;
       margin-bottom: .5rem;
-      max-width: 260px; /* smaller triangle */
+      max-width: 260px;
     }
 
     .triangle-wrap svg {
@@ -278,7 +270,6 @@
       margin-top: .3rem;
     }
 
-    /* Responsive */
     @media (max-width: 950px) {
       .about {
         grid-template-columns: 1fr;
@@ -314,7 +305,6 @@
       }
     }
 
-    /* Print */
     @media print {
       .sidebar { display: none; }
       .content { margin: 0; }
@@ -373,25 +363,25 @@
 
     <section id="research-interests" class="section prose">
       <h2>research interests</h2>
-      <p>i am interested in this little directed triangle:</p>
+      <p>i am interested in a variety of geometric subjects. one possible presentation of my interests looks like the following graph:</p>
 
       <div class="triangle-wrap">
-        <svg viewBox="0 0 260 220" aria-labelledby="triangle-title triangle-desc" role="img">
+        <svg viewBox="0 0 520 220" aria-labelledby="triangle-title triangle-desc" role="img">
           <title id="triangle-title">triangle of research interests</title>
           <desc id="triangle-desc">
             a triangle with vertices complex geometry, convex geometry, and metric geometry,
-            with two-way arrows along each edge.
+            with two-way arrows along each edge, together with geometric analysis a base-length
+            to the right of complex geometry and geometric group theory a base-length to the
+            right of metric geometry, each connected by a two-way arrow to its corresponding vertex.
           </desc>
 
           <defs>
-            <!-- arrowhead marker -->
             <marker id="arrowhead" viewBox="0 0 10 10" refX="10" refY="5"
                     markerWidth="6" markerHeight="6" orient="auto-start-reverse">
               <path d="M 0 0 L 10 5 L 0 10 z" fill="black" />
             </marker>
           </defs>
 
-          <!-- triangle edges with arrows at both ends -->
           <line x1="130" y1="30"  x2="30"  y2="180"
                 stroke="black" stroke-width="1.6"
                 marker-start="url(#arrowhead)" marker-end="url(#arrowhead)" />
@@ -402,27 +392,44 @@
                 stroke="black" stroke-width="1.6"
                 marker-start="url(#arrowhead)" marker-end="url(#arrowhead)" />
 
-          <!-- vertices -->
+          <line x1="130" y1="30" x2="330" y2="30"
+                stroke="black" stroke-width="1.6"
+                marker-start="url(#arrowhead)" marker-end="url(#arrowhead)" />
+          <line x1="230" y1="180" x2="430" y2="180"
+                stroke="black" stroke-width="1.6"
+                marker-start="url(#arrowhead)" marker-end="url(#arrowhead)" />
+
           <circle cx="130" cy="30"  r="3" fill="black" />
           <circle cx="30"  cy="180" r="3" fill="black" />
           <circle cx="230" cy="180" r="3" fill="black" />
+          <circle cx="330" cy="30" r="3" fill="black" />
+          <circle cx="430" cy="180" r="3" fill="black" />
 
-          <!-- labels -->
           <text x="130" y="18" text-anchor="middle" font-size="10">
             complex geometry
           </text>
           <text x="18" y="196" text-anchor="start" font-size="10">
             convex geometry
           </text>
-          <text x="242" y="196" text-anchor="end" font-size="10">
+          <text x="230" y="196" text-anchor="middle" font-size="10">
             metric geometry
           </text>
+          <text x="330" y="44" text-anchor="middle" font-size="10">
+            geometric analysis
+          </text>
+          <text x="430" y="196" text-anchor="middle" font-size="10">
+            geometric group theory
+          </text>
         </svg>
-
-        <p class="triangle-caption">
-          most things i like live somewhere along these arrows (or nearby)
-        </p>
       </div>
+
+<p>
+  i view these subfields as motivically connected: they either benefit greatly from perspectives in adjacent areas, or exist as the completion of a desire to study one thing through the lens of another.
+</p>
+<p>
+  this interconnectedness is what especially interests me; in this sense, my math is more philosophically motivated than subfield-first.
+</p>
+
     </section>
 
     <section id="papers" class="section prose">
@@ -448,7 +455,7 @@
       <div class="simple-list">
         <p>
           <a href="https://meetings.ams.org/math/jmm2025/meetingapp.cgi/Paper/42612" target="_blank" rel="noopener"><em>Hölder estimates for the Hausdorff distance and a quasi-metric</em></a>,
-          AMS–MAA–SIAM Special Session on Research in Mathematics by Undergraduates, Joint Mathematics Meetings, Jan. 2025
+          AMS–MAA–SIAM Special Session on Research in Mathematics by Undergraduates, Joint Mathematics Meetings, jan. 2025
           [ <a href="H%C3%B6lder_estimates_for_the_Hausdorff_distance_and_a_quasi_metric.pdf" download>PDF</a> ]
         </p>
         <p>Manifolds, mixed volumes, and a quasi-metric, Tufts Math Monday Meeting, oct. 2024</p>
@@ -466,7 +473,6 @@
     </footer>
 
     <script>
-      // highlight active nav link while scrolling
       (function(){
         const links = Array.from(document.querySelectorAll('.sidebar nav a'));
         const map = Object.fromEntries(links.map(a => [a.getAttribute('href').slice(1), a]));
@@ -483,7 +489,6 @@
     </script>
 
     <script>
-      // reading progress bar
       (function(){
         const bar = document.querySelector('.progress');
         const update = () => {
