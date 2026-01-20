@@ -94,6 +94,37 @@
       text-transform: lowercase;
     }
 
+    /* --- NYT "NEW!" banner --- */
+    .nyt-banner {
+      margin-top: .85rem;
+      padding: .55rem .55rem;
+      border: 1px solid var(--ink);
+      background: rgba(0,0,0,0.03);
+      font-size: .78rem;
+      letter-spacing: .08em;
+      text-transform: lowercase;
+      line-height: 1.35;
+    }
+
+    .nyt-banner .badge {
+      display: inline-block;
+      padding: .08rem .38rem;
+      margin-right: .4rem;
+      border: 1px solid var(--ink);
+      font-weight: 700;
+      background: var(--ink);
+      color: var(--bg);
+    }
+
+    .nyt-banner a {
+      color: var(--ink);
+      text-decoration: underline;
+      text-underline-offset: 2px;
+    }
+    .nyt-banner a:hover {
+      text-decoration-thickness: 2px;
+    }
+
     nav {
       margin-top: .9rem;
       font-size: .85rem;
@@ -322,6 +353,18 @@
       <h1>david owen horace cutler</h1>
       <p>undergraduate student</p>
     </div>
+
+    <div class="nyt-banner" role="note" aria-label="New York Times feature">
+      <span class="badge">NEW!</span>
+      <a
+        href="https://www.nytimes.com/2026/01/20/science/infinite-pancake-math-puzzle.html?unlocked_article_code=1.F1A.qLLx.IXfuASTwQA3-&smid=url-share"
+        target="_blank"
+        rel="noopener"
+      >
+        featured in a recent new york times piece
+      </a>
+    </div>
+
     <nav>
       <a href="#about-me">about me</a>
       <a href="#research-interests">research interests</a>
