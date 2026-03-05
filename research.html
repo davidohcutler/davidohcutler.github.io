@@ -144,18 +144,27 @@
 
     .paper-text { flex: 1 1 auto; min-width: 0; }
 
-    .paper-thumb {
-      flex: 0 0 220px;
-      max-width: 220px;
-      width: 220px;
+    /* framed thumbnail: image centered within a slightly larger white canvas */
+    .paper-frame {
+      flex: 0 0 240px;
+      width: 240px;
+      max-width: 240px;
       border: 1px solid var(--ink);
-      background: #fff;
-      aspect-ratio: 4 / 3;
-      object-fit: contain;
-      image-rendering: auto;
+      background: #ffffff;
+      padding: 12px;              /* the "mat" */
+      display: flex;
+      align-items: center;
+      justify-content: center;
     }
 
-    .paper-meta { color: var(--muted); }
+    .paper-thumb {
+      width: 100%;
+      height: auto;
+      max-height: 190px;          /* keeps the mat visible */
+      object-fit: contain;
+      display: block;
+      background: #ffffff;
+    }
 
     .simple-list p { margin: .6rem 0; }
 
@@ -171,7 +180,8 @@
 
     @media (max-width: 920px) {
       .paper-row { flex-direction: column; }
-      .paper-thumb { width: 100%; max-width: 520px; flex-basis: auto; }
+      .paper-frame { width: 100%; max-width: 520px; flex-basis: auto; }
+      .paper-thumb { max-height: 260px; }
     }
 
     @media (max-width: 760px) {
@@ -222,20 +232,23 @@
             <a href="https://arxiv.org/abs/2411.11246" target="_blank" rel="noopener">arXiv:2411.11246</a>
           </p>
         </div>
-        <img class="paper-thumb" src="paper1.png" alt="Thumbnail for: The Hausdorff distance and metrics on toric singularity types" />
+        <div class="paper-frame" aria-label="Figure thumbnail for: The Hausdorff distance and metrics on toric singularity types">
+          <img class="paper-thumb" src="paper1.png" alt="Thumbnail for: The Hausdorff distance and metrics on toric singularity types" />
+        </div>
       </div>
 
       <div class="paper-row">
         <div class="paper-text">
           <p>
             <em>Intrinsic metrics from valuations on convex bodies</em>
-            (with M. Deaton), <span class="paper-meta">in preparation</span>.
+            (with M. Deaton), in preparation.
           </p>
         </div>
 
-        <!-- GIFs require no special packages in HTML/CSS.
-             Just point src to a .gif (or animated .webp). -->
-        <img class="paper-thumb" src="paper2.gif" alt="Animated thumbnail (GIF) for: Intrinsic metrics from valuations on convex bodies" />
+        <div class="paper-frame" aria-label="Animated thumbnail for: Intrinsic metrics from valuations on convex bodies">
+          <!-- GIFs require no special packages; browsers render them natively. -->
+          <img class="paper-thumb" src="paper2.gif" alt="Animated thumbnail (GIF) for: Intrinsic metrics from valuations on convex bodies" />
+        </div>
       </div>
 
       <h3>Manuscripts, other papers, etc.</h3>
@@ -245,11 +258,13 @@
           <p>
             <em>Cutting a pancake using an exotic knife</em>
             (with N. J. A. Sloane), preprint,
-            <a href="https://arxiv.org/abs/2511.15864" target="_blank" rel="noopener">arXiv:2511.15864</a>
-            — <a href="https://www.nytimes.com/2026/01/20/science/infinite-pancake-math-puzzle.html?unlocked_article_code=1.Q1A.zOkV.xJH5E2F32ZPO&smid=url-share" target="_blank" rel="noopener">featured in NY Times</a>
+            <a href="https://arxiv.org/abs/2511.15864" target="_blank" rel="noopener">arXiv:2511.15864</a>,
+            <a href="https://www.nytimes.com/2026/01/20/science/infinite-pancake-math-puzzle.html?unlocked_article_code=1.Q1A.zOkV.xJH5E2F32ZPO&smid=url-share" target="_blank" rel="noopener">featured in NY Times</a>
           </p>
         </div>
-        <img class="paper-thumb" src="paper3.png" alt="Thumbnail for: Cutting a pancake using an exotic knife" />
+        <div class="paper-frame" aria-label="Figure thumbnail for: Cutting a pancake using an exotic knife">
+          <img class="paper-thumb" src="paper3.png" alt="Thumbnail for: Cutting a pancake using an exotic knife" />
+        </div>
       </div>
     </section>
 
