@@ -4,6 +4,22 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>David Owen Horace Cutler | Research</title>
+
+  <!-- MathJax (LaTeX-style math in $...$ / \( ... \) / \[ ... \]) -->
+  <script>
+    window.MathJax = {
+      tex: {
+        inlineMath: [['$', '$'], ['\\(', '\\)']],
+        displayMath: [['\\[', '\\]']],
+        processEscapes: true
+      },
+      options: {
+        skipHtmlTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+      }
+    };
+  </script>
+  <script defer src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+
   <style>
     :root {
       --bg: #fdfdfd;
@@ -134,15 +150,23 @@
 
     p { margin: 0 0 .9rem; font-size: 1rem; }
 
-    /* paper rows with image on the right */
     .paper-row {
       display: flex;
       gap: 1rem;
       align-items: flex-start;
-      margin: .8rem 0;
+      margin: .8rem 0 1.1rem;
     }
 
     .paper-text { flex: 1 1 auto; min-width: 0; }
+
+    /* italic blurb placeholder under each citation */
+    .paper-blurb {
+      margin-top: .35rem;
+      font-size: .95rem;
+      font-style: italic;
+      /* keep it visually "small" without changing color */
+      letter-spacing: .01em;
+    }
 
     /* framed thumbnail: image centered within a slightly larger white canvas */
     .paper-frame {
@@ -231,6 +255,10 @@
             Bull. Sci. Math. 204 (2025), art. 103714,
             <a href="https://arxiv.org/abs/2411.11246" target="_blank" rel="noopener">arXiv:2411.11246</a>
           </p>
+          <p class="paper-blurb">
+            We consider a construction that takes in a convex body $G$ and produces a quasimetric $d_G$. We prove explicit Hölder estimates comparing $d_G$ to the Hausdorff distance, with constants depending on the geometry of $G$.
+
+          </p>
         </div>
         <div class="paper-frame" aria-label="Figure thumbnail for: The Hausdorff distance and metrics on toric singularity types">
           <img class="paper-thumb" src="paper1.png" alt="Thumbnail for: The Hausdorff distance and metrics on toric singularity types" />
@@ -243,10 +271,11 @@
             <em>Intrinsic metrics from valuations on convex bodies</em>
             (with M. Deaton), in preparation.
           </p>
+          <p class="paper-blurb">
+            We outline a construction that produces a pseudometric from any valuation on convex bodies. We give broad conditions under which this construction yields a genuine metric, and then study the resulting metric geometry and topology.
+          </p>
         </div>
-
         <div class="paper-frame" aria-label="Animated thumbnail for: Intrinsic metrics from valuations on convex bodies">
-          <!-- GIFs require no special packages; browsers render them natively. -->
           <img class="paper-thumb" src="paper2.gif" alt="Animated thumbnail (GIF) for: Intrinsic metrics from valuations on convex bodies" />
         </div>
       </div>
@@ -257,9 +286,12 @@
         <div class="paper-text">
           <p>
             <em>Cutting a pancake using an exotic knife</em>
-            (with N. J. A. Sloane), preprint,
+            (with N. Sloane), preprint,
             <a href="https://arxiv.org/abs/2511.15864" target="_blank" rel="noopener">arXiv:2511.15864</a>,
             <a href="https://www.nytimes.com/2026/01/20/science/infinite-pancake-math-puzzle.html?unlocked_article_code=1.Q1A.zOkV.xJH5E2F32ZPO&smid=url-share" target="_blank" rel="noopener">featured in NY Times</a>
+          </p>
+          <p class="paper-blurb">
+            We consider some generalizations of the lazy caterer’s problem and discuss how they might be approached using standard combinatorial arguments and techniques from experimental mathematics.
           </p>
         </div>
         <div class="paper-frame" aria-label="Figure thumbnail for: Cutting a pancake using an exotic knife">
