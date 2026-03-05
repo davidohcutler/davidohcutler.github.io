@@ -1,0 +1,276 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>David Owen Horace Cutler | Research</title>
+  <style>
+    :root {
+      --bg: #fdfdfd;
+      --ink: #000000;
+      --accent: #000000;
+      --rule: rgba(0, 0, 0, 0.25);
+      --muted: #555555;
+    }
+
+    * { box-sizing: border-box; }
+    html, body { height: 100%; }
+    html { scroll-behavior: smooth; }
+
+    body {
+      margin: 0;
+      display: flex;
+      min-height: 100vh;
+      font-family: "Courier New", Courier, ui-monospace, Menlo, monospace;
+      background: var(--bg);
+      color: var(--ink);
+      line-height: 1.55;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+      overflow-x: hidden;
+      position: relative;
+    }
+
+    a { color: var(--accent); text-decoration: none; }
+    a:hover { text-decoration: underline; }
+
+    body::before {
+      content: "";
+      position: fixed;
+      inset: 0;
+      z-index: -1;
+      background-image:
+        repeating-linear-gradient(
+          0deg,
+          rgba(0,0,0,0.045) 0,
+          rgba(0,0,0,0.045) 1px,
+          transparent 1px,
+          transparent 3px
+        ),
+        repeating-linear-gradient(
+          90deg,
+          rgba(0,0,0,0.025) 0,
+          rgba(0,0,0,0.025) 1px,
+          transparent 1px,
+          transparent 4px
+        );
+      mix-blend-mode: multiply;
+      pointer-events: none;
+    }
+
+    .sidebar {
+      position: fixed;
+      top: 0;
+      left: 0;
+      bottom: 0;
+      width: 288px;
+      border-right: 1px solid var(--rule);
+      background: var(--bg);
+      padding: 1.75rem 1rem 2rem;
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+      height: 100vh;
+    }
+
+    .brand { text-align: center; }
+
+    .brand h1 {
+      font-size: 1.3rem;
+      margin: 0 0 .2rem;
+      letter-spacing: .04em;
+    }
+
+    .brand p {
+      margin: 0;
+      font-size: .9rem;
+      color: var(--muted);
+    }
+
+    nav {
+      margin-top: .9rem;
+      font-size: .9rem;
+    }
+
+    nav a {
+      display: block;
+      padding: .25rem .35rem;
+      margin-bottom: .1rem;
+      letter-spacing: .04em;
+      color: var(--ink);
+      border-left: 2px solid transparent;
+      transition: background .15s ease, border-color .15s ease;
+    }
+
+    nav a:hover { background: rgba(0,0,0,0.05); }
+    nav a.active {
+      border-left-color: var(--ink);
+      background: rgba(0,0,0,0.08);
+    }
+
+    .content { margin-left: 288px; padding: 2rem; }
+
+    .section { margin: 0 0 2.2rem; }
+    .prose { max-width: 980px; }
+
+    .section h2 {
+      font-size: 1.1rem;
+      font-weight: 600;
+      letter-spacing: .06em;
+      margin: 0 0 .75rem;
+      display: inline-block;
+      padding: .15rem .35rem .15rem .15rem;
+      border-bottom: 1px solid var(--ink);
+      transform: rotate(-0.4deg);
+    }
+
+    .section h3 {
+      font-size: 1rem;
+      margin: 1rem 0 .4rem;
+      color: var(--muted);
+      letter-spacing: .04em;
+      font-weight: 600;
+    }
+
+    p { margin: 0 0 .9rem; font-size: 1rem; }
+
+    /* paper rows with image on the right */
+    .paper-row {
+      display: flex;
+      gap: 1rem;
+      align-items: flex-start;
+      margin: .8rem 0;
+    }
+
+    .paper-text { flex: 1 1 auto; min-width: 0; }
+
+    .paper-thumb {
+      flex: 0 0 220px;
+      max-width: 220px;
+      width: 220px;
+      border: 1px solid var(--ink);
+      background: #fff;
+      aspect-ratio: 4 / 3;
+      object-fit: contain;
+    }
+
+    .paper-meta { color: var(--muted); }
+
+    .simple-list p { margin: .6rem 0; }
+
+    .tight-paren { display: inline-block; margin-left: -0.5ch; }
+
+    footer {
+      margin-top: 2rem;
+      font-size: .9rem;
+      color: var(--muted);
+      border-top: 1px solid var(--rule);
+      padding-top: .5rem;
+    }
+
+    @media (max-width: 920px) {
+      .paper-row { flex-direction: column; }
+      .paper-thumb { width: 100%; max-width: 520px; flex-basis: auto; }
+    }
+
+    @media (max-width: 760px) {
+      .sidebar {
+        position: static;
+        width: 100%;
+        border-right: 0;
+        border-bottom: 1px solid var(--rule);
+        height: auto;
+      }
+      .content { margin: 0; padding: 1.25rem; }
+      nav { display: flex; overflow-x: auto; gap: .35rem; padding-bottom: .25rem; }
+      nav a { white-space: nowrap; }
+    }
+
+    @media print {
+      .sidebar { display: none; }
+      .content { margin: 0; }
+      a { text-decoration: none; color: inherit; }
+      body::before { display: none; }
+    }
+  </style>
+</head>
+<body>
+  <aside class="sidebar">
+    <div class="brand">
+      <h1>David Owen Horace Cutler</h1>
+      <p>Undergraduate student</p>
+    </div>
+    <nav>
+      <a href="index.html">Home</a>
+      <a class="active" href="research.html">Research</a>
+    </nav>
+  </aside>
+
+  <main class="content">
+    <section class="section prose">
+      <h2>Papers</h2>
+
+      <h3>Research publications</h3>
+
+      <div class="paper-row">
+        <div class="paper-text">
+          <p>
+            <em>The Hausdorff distance and metrics on toric singularity types</em>
+            (with A. Aitokhuehi, B. Braiman, T. Darvas, M. Deaton, P. Gupta, J. Horsley, V. Pidaparthy, J. Tang),
+            Bull. Sci. Math. 204 (2025), art. 103714,
+            <a href="https://arxiv.org/abs/2411.11246" target="_blank" rel="noopener">arXiv:2411.11246</a>
+          </p>
+        </div>
+        <img class="paper-thumb" src="paper1.png" alt="Thumbnail for: The Hausdorff distance and metrics on toric singularity types" />
+      </div>
+
+      <div class="paper-row">
+        <div class="paper-text">
+          <p>
+            <em>Intrinsic metrics from valuations on convex bodies</em>
+            (with M. Deaton), <span class="paper-meta">in preparation</span>.
+          </p>
+        </div>
+        <img class="paper-thumb" src="paper2.png" alt="Thumbnail for: Intrinsic metrics from valuations on convex bodies" />
+      </div>
+
+      <h3>Manuscripts, other papers, etc.</h3>
+
+      <div class="paper-row">
+        <div class="paper-text">
+          <p>
+            <em>Cutting a pancake using an exotic knife</em>
+            (with N. J. A. Sloane), preprint,
+            <a href="https://arxiv.org/abs/2511.15864" target="_blank" rel="noopener">arXiv:2511.15864</a>
+            — <a href="https://www.nytimes.com/2026/01/20/science/infinite-pancake-math-puzzle.html?unlocked_article_code=1.Q1A.zOkV.xJH5E2F32ZPO&smid=url-share" target="_blank" rel="noopener">featured in NY Times</a>
+          </p>
+        </div>
+        <img class="paper-thumb" src="paper3.png" alt="Thumbnail for: Cutting a pancake using an exotic knife" />
+      </div>
+    </section>
+
+    <section class="section prose">
+      <h2>Talks</h2>
+      <div class="simple-list">
+        <p>
+          <a href="https://meetings.ams.org/math/jmm2025/meetingapp.cgi/Paper/42612" target="_blank" rel="noopener">
+            <em>Hölder estimates for the Hausdorff distance and a quasi-metric</em>
+          </a>,
+          AMS–MAA–SIAM Special Session on Research in Mathematics by Undergraduates, Joint Mathematics Meetings, Jan. 2025
+          [ <a href="H%C3%B6lder_estimates_for_the_Hausdorff_distance_and_a_quasi_metric.pdf" download>PDF</a> ]
+        </p>
+        <p>Manifolds, mixed volumes, and a quasi-metric, Tufts Math Monday Meeting, Oct. 2024</p>
+        <p>Counterexamples in measure, Tufts Math Monday Meeting, Mar. 2024</p>
+        <p>Metric geometry of convex bodies, Tufts Math Monday Meeting, Oct. 2025</p>
+        <p><span class="tight-paren">(</span>Near-)metrics arising from valuations on convex bodies, BUGCAT 2025, Nov. 2025</p>
+        <p>Alternative geometries on the space of convex bodies, Contributed Session on Research by Undergraduates, Joint Mathematics Meetings, Jan. 2026</p>
+        <p>Valuations and integral geometry, Tufts Math Monday Meeting, Apr. 2026</p>
+      </div>
+    </section>
+
+    <footer class="prose">
+      <p>Last updated: Jan. 20, 2026.</p>
+    </footer>
+  </main>
+</body>
+</html>
