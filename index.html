@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>david owen horace cutler | mathematics</title>
+  <title>David Owen Horace Cutler | Mathematics</title>
   <style>
     :root {
       --bg: #fdfdfd;
@@ -11,8 +11,6 @@
       --accent: #000000;
       --rule: rgba(0, 0, 0, 0.25);
       --muted: #555555;
-      --radius: 0;
-      --banner-h: 44px;
     }
 
     * { box-sizing: border-box; }
@@ -31,16 +29,10 @@
       -moz-osx-font-smoothing: grayscale;
       overflow-x: hidden;
       position: relative;
-      padding-top: var(--banner-h);
     }
 
-    a {
-      color: var(--accent);
-      text-decoration: none;
-    }
-    a:hover {
-      text-decoration: underline;
-    }
+    a { color: var(--accent); text-decoration: none; }
+    a:hover { text-decoration: underline; }
 
     body::before {
       content: "";
@@ -66,52 +58,9 @@
       pointer-events: none;
     }
 
-    .top-banner {
-      position: fixed;
-      top: 0;
-      left: 0;
-      right: 0;
-      height: var(--banner-h);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      gap: .6rem;
-      padding: 0 .9rem;
-      border-bottom: 1px solid var(--rule);
-      background: var(--bg);
-      z-index: 30;
-      white-space: nowrap;
-      overflow: hidden;
-      text-overflow: ellipsis;
-      font-size: .82rem;
-      letter-spacing: .08em;
-      text-transform: lowercase;
-    }
-
-    .top-banner .badge {
-      display: inline-block;
-      padding: .08rem .38rem;
-      border: 1px solid var(--ink);
-      font-weight: 700;
-      background: var(--ink);
-      color: var(--bg);
-      flex: 0 0 auto;
-    }
-
-    .top-banner a {
-      color: var(--ink);
-      text-decoration: underline;
-      text-underline-offset: 2px;
-      overflow: hidden;
-      text-overflow: ellipsis;
-    }
-    .top-banner a:hover {
-      text-decoration-thickness: 2px;
-    }
-
     .sidebar {
       position: fixed;
-      top: var(--banner-h);
+      top: 0;
       left: 0;
       bottom: 0;
       width: 288px;
@@ -121,48 +70,39 @@
       display: flex;
       flex-direction: column;
       gap: 1rem;
-      height: calc(100vh - var(--banner-h));
+      height: 100vh;
     }
 
-    .brand {
-      text-align: center;
-    }
+    .brand { text-align: center; }
 
     .brand h1 {
       font-size: 1.3rem;
       margin: 0 0 .2rem;
-      letter-spacing: .08em;
-      text-transform: lowercase;
+      letter-spacing: .04em;
     }
 
     .brand p {
       margin: 0;
       font-size: .9rem;
       color: var(--muted);
-      text-transform: lowercase;
     }
 
     nav {
       margin-top: .9rem;
-      font-size: .85rem;
-      text-transform: lowercase;
+      font-size: .9rem;
     }
 
     nav a {
       display: block;
       padding: .25rem .35rem;
       margin-bottom: .1rem;
-      letter-spacing: .08em;
+      letter-spacing: .04em;
       color: var(--ink);
-      border-radius: 0;
       border-left: 2px solid transparent;
       transition: background .15s ease, border-color .15s ease;
     }
 
-    nav a:hover {
-      background: rgba(0,0,0,0.05);
-    }
-
+    nav a:hover { background: rgba(0,0,0,0.05); }
     nav a.active {
       border-left-color: var(--ink);
       background: rgba(0,0,0,0.08);
@@ -173,15 +113,13 @@
       padding: 2rem;
     }
 
-    .section {
-      margin: 0 0 2.2rem;
-    }
+    .section { margin: 0 0 2.2rem; }
+    .prose { max-width: 900px; }
 
     .section h2 {
       font-size: 1.1rem;
       font-weight: 600;
-      letter-spacing: .12em;
-      text-transform: lowercase;
+      letter-spacing: .06em;
       margin: 0 0 .75rem;
       display: inline-block;
       padding: .15rem .35rem .15rem .15rem;
@@ -189,22 +127,7 @@
       transform: rotate(-0.4deg);
     }
 
-    .section h3 {
-      font-size: 1rem;
-      margin: 1rem 0 .4rem;
-      color: var(--muted);
-      text-transform: lowercase;
-      letter-spacing: .08em;
-    }
-
-    .prose {
-      max-width: 900px;
-    }
-
-    p {
-      margin: 0 0 .9rem;
-      font-size: 1rem;
-    }
+    p { margin: 0 0 .9rem; font-size: 1rem; }
 
     .about {
       display: grid;
@@ -225,7 +148,6 @@
       aspect-ratio: 16 / 9;
       object-fit: contain;
       background: #ffffff;
-      border-radius: 0;
       border: 1px solid var(--ink);
     }
 
@@ -235,52 +157,7 @@
       font-style: italic;
     }
 
-    .paper-list p,
-    .simple-list p {
-      margin: .6rem 0;
-    }
-
-    .tight-paren {
-      display: inline-block;
-      margin-left: -0.5ch;
-    }
-
-    .grid-photos {
-      display: flex;
-      flex-wrap: wrap;
-      gap: .75rem;
-    }
-
-    .grid-photos img {
-      width: 300px;
-      height: auto;
-      border: 1px solid var(--ink);
-      border-radius: 0;
-    }
-
-    .hint {
-      color: var(--muted);
-      font-size: .9rem;
-    }
-
-    footer {
-      margin-top: 2rem;
-      font-size: .9rem;
-      color: var(--muted);
-      border-top: 1px solid var(--rule);
-      padding-top: .5rem;
-      text-transform: lowercase;
-    }
-
-    .progress {
-      position: fixed;
-      top: var(--banner-h);
-      left: 0;
-      height: 3px;
-      width: 0;
-      background: var(--ink);
-      z-index: 20;
-    }
+    .hint { color: var(--muted); font-size: .9rem; }
 
     .btn {
       display: inline-block;
@@ -289,68 +166,36 @@
       border-radius: 0;
       font-weight: 700;
       font-size: .9rem;
-      text-transform: lowercase;
       background: transparent;
-      letter-spacing: .06em;
+      letter-spacing: .04em;
       cursor: pointer;
     }
 
-    .btn:hover {
-      background: rgba(0,0,0,0.06);
-      text-decoration: none;
-    }
+    .btn:hover { background: rgba(0,0,0,0.06); text-decoration: none; }
+    .btn:focus-visible { outline: 1px dashed var(--ink); outline-offset: 2px; }
 
-    .btn:focus-visible {
-      outline: 1px dashed var(--ink);
-      outline-offset: 2px;
-    }
-
-    .triangle-wrap {
-      margin-top: 1rem;
-      margin-bottom: .5rem;
-      max-width: 400px;
-    }
-
-    .triangle-wrap svg {
-      width: 100%;
-      height: auto;
-      display: block;
-    }
-
-    .triangle-caption {
+    footer {
+      margin-top: 2rem;
       font-size: .9rem;
       color: var(--muted);
-      margin-top: .3rem;
+      border-top: 1px solid var(--rule);
+      padding-top: .5rem;
     }
 
     @media (max-width: 950px) {
-      .about {
-        grid-template-columns: 1fr;
-      }
-
-      .portrait {
-        max-width: 100%;
-      }
+      .about { grid-template-columns: 1fr; }
     }
 
     @media (max-width: 760px) {
-      body {
-        padding-top: var(--banner-h);
-      }
-
       .sidebar {
         position: static;
         width: 100%;
         border-right: 0;
         border-bottom: 1px solid var(--rule);
         height: auto;
-        top: auto;
       }
 
-      .content {
-        margin: 0;
-        padding: 1.25rem;
-      }
+      .content { margin: 0; padding: 1.25rem; }
 
       nav {
         display: flex;
@@ -359,231 +204,66 @@
         padding-bottom: .25rem;
       }
 
-      nav a {
-        white-space: nowrap;
-      }
+      nav a { white-space: nowrap; }
     }
 
     @media print {
-      .top-banner { display: none; }
       .sidebar { display: none; }
       .content { margin: 0; }
       a { text-decoration: none; color: inherit; }
       body::before { display: none; }
-      .progress { display: none; }
-      body { padding-top: 0; }
     }
   </style>
 </head>
 <body>
-  <div class="top-banner" role="note" aria-label="New York Times feature">
-    <span class="badge">NEW!</span>
-    <a
-      href="https://www.nytimes.com/2026/01/20/science/infinite-pancake-math-puzzle.html?unlocked_article_code=1.F1A.qLLx.IXfuASTwQA3-&smid=url-share"
-      target="_blank"
-      rel="noopener"
-    >
-      featured in a recent new york times piece.
-    </a>
-  </div>
-
-  <div class="progress"></div>
-
   <aside class="sidebar">
     <div class="brand">
-      <h1>david owen horace cutler</h1>
-      <p>undergraduate student</p>
+      <h1>David Owen Horace Cutler</h1>
+      <p>Undergraduate student</p>
     </div>
     <nav>
-      <a href="#about-me">about me</a>
-      <a href="#research-interests">research interests</a>
-      <a href="#papers">papers</a>
-      <a href="#notes-and-talks">notes and talks</a>
-      <a href="#contact">contact</a>
+      <a class="active" href="index.html">Home</a>
+      <a href="research.html">Research</a>
     </nav>
   </aside>
 
   <main class="content">
-    <section id="about-me" class="section prose">
-      <h2>about me</h2>
+    <section class="section prose">
+      <h2>About me</h2>
       <div class="about">
         <div class="about-image">
-          <img class="portrait" src="me.png" alt="meow"/>
-          <p class="photo-caption">a row of the mayer–vietoris sequence for cat-mology</p>
+          <img class="portrait" src="me.png" alt="Portrait" />
+          <p class="photo-caption">A row of the Mayer–Vietoris sequence for cat-mology</p>
         </div>
         <div>
-          <p>hi! i’m david owen horace cutler, an undergraduate studying mathematics at tufts university.</p>
+          <p>
+            Hi! I’m David Owen Horace Cutler, an undergraduate studying mathematics at Tufts University.
+            My interests lie in interactions between complex and convex geometry, as well as both subjects separately.
+          </p>
           <p class="hint">
-            art by
-            <a href="https://catherinedileo.github.io/" target="_blank" rel="noopener">
-              catherine dileo
-            </a>.
+            Art by
+            <a href="https://catherinedileo.github.io/" target="_blank" rel="noopener">Catherine DiLeo</a>.
           </p>
           <p>
-            <a class="btn" href="Cutler-CV-2026-01.pdf"
-               download="Cutler-CV-2026-01.pdf"
-               type="application/pdf">
-              download cv
+            <a class="btn" href="Cutler-CV-2026-01.pdf" download="Cutler-CV-2026-01.pdf" type="application/pdf">
+              Download CV
             </a>
             <span style="margin-left:.5rem; color: var(--muted); font-size:.9rem;">
-              updated jan. 2026
+              Updated Jan. 2026
             </span>
           </p>
         </div>
       </div>
     </section>
 
-    <section id="research-interests" class="section prose">
-      <h2>research interests</h2>
-      <p>i am interested in a variety of geometric subjects. one possible presentation of my interests looks like the following graph:</p>
-
-      <div class="triangle-wrap">
-        <svg viewBox="0 0 520 220" aria-labelledby="triangle-title triangle-desc" role="img">
-          <title id="triangle-title">triangle of research interests</title>
-          <desc id="triangle-desc">
-            a triangle with vertices complex geometry, convex geometry, and metric geometry,
-            with two-way arrows along each edge, together with geometric analysis a base-length
-            to the right of complex geometry and geometric group theory a base-length to the
-            right of metric geometry, each connected by a two-way arrow to its corresponding vertex.
-          </desc>
-
-          <defs>
-            <marker id="arrowhead" viewBox="0 0 10 10" refX="10" refY="5"
-                    markerWidth="6" markerHeight="6" orient="auto-start-reverse">
-              <path d="M 0 0 L 10 5 L 0 10 z" fill="black" />
-            </marker>
-          </defs>
-
-          <line x1="130" y1="30"  x2="30"  y2="180"
-                stroke="black" stroke-width="1.6"
-                marker-start="url(#arrowhead)" marker-end="url(#arrowhead)" />
-          <line x1="30"  y1="180" x2="230" y2="180"
-                stroke="black" stroke-width="1.6"
-                marker-start="url(#arrowhead)" marker-end="url(#arrowhead)" />
-          <line x1="230" y1="180" x2="130" y2="30"
-                stroke="black" stroke-width="1.6"
-                marker-start="url(#arrowhead)" marker-end="url(#arrowhead)" />
-
-          <line x1="130" y1="30" x2="330" y2="30"
-                stroke="black" stroke-width="1.6"
-                marker-start="url(#arrowhead)" marker-end="url(#arrowhead)" />
-          <line x1="230" y1="180" x2="430" y2="180"
-                stroke="black" stroke-width="1.6"
-                marker-start="url(#arrowhead)" marker-end="url(#arrowhead)" />
-
-          <circle cx="130" cy="30"  r="3" fill="black" />
-          <circle cx="30"  cy="180" r="3" fill="black" />
-          <circle cx="230" cy="180" r="3" fill="black" />
-          <circle cx="330" cy="30" r="3" fill="black" />
-          <circle cx="430" cy="180" r="3" fill="black" />
-
-          <text x="130" y="18" text-anchor="middle" font-size="10">
-            complex geometry
-          </text>
-          <text x="18" y="196" text-anchor="start" font-size="10">
-            convex geometry
-          </text>
-          <text x="230" y="196" text-anchor="middle" font-size="10">
-            metric geometry
-          </text>
-          <text x="330" y="44" text-anchor="middle" font-size="10">
-            geometric analysis
-          </text>
-          <text x="430" y="196" text-anchor="middle" font-size="10">
-            geometric group theory
-          </text>
-        </svg>
-      </div>
-
-      <p>
-        i view these subfields as motivically connected: they either benefit greatly from perspectives in adjacent areas, or exist as the completion of a desire to study one thing through the lens of another.
-      </p>
-      <p>
-        this interconnectedness is what especially interests me; in this sense, my math is more philosophically motivated than subfield-first.
-      </p>
-
-    </section>
-
-    <section id="papers" class="section prose">
-      <h2>papers</h2>
-
-      <h3>research publications</h3>
-      <div class="paper-list">
-        <p>
-          <span class="title"><em>The Hausdorff distance and metrics on toric singularity types</em></span>
-          (with A. Aitokhuehi, B. Braiman, T. Darvas, M. Deaton, P. Gupta, J. Horsley, V. Pidaparthy, J. Tang), Bull. Sci. Math. 204 (2025), art. 103714,
-          <a href="https://arxiv.org/abs/2411.11246" target="_blank" rel="noopener">arXiv:2411.11246</a>
-        </p>
-        <p>
-          <span class="title"><em>On valuation deviations and their geometry</em></span>
-          (with M. Deaton), preprint,
-          <a href="https://arxiv.org/abs/2511.23468" target="_blank" rel="noopener">arXiv:2511.23468</a>
-        </p>
-      </div>
-
-      <h3>manuscripts, other papers, etc.</h3>
-      <div class="paper-list">
-        <p>
-          <span class="title"><em>Cutting a pancake using an exotic knife</em></span> (with N. J. A. Sloane), preprint,
-          <a href="https://arxiv.org/abs/2511.15864" target="_blank" rel="noopener">arXiv:2511.15864</a>
-        </p>
-      </div>
-    </section>
-
-    <section id="notes-and-talks" class="section prose">
-      <h2>notes and talks</h2>
-      <div class="simple-list">
-        <p>
-          <a href="https://meetings.ams.org/math/jmm2025/meetingapp.cgi/Paper/42612" target="_blank" rel="noopener"><em>Hölder estimates for the Hausdorff distance and a quasi-metric</em></a>,
-          AMS–MAA–SIAM Special Session on Research in Mathematics by Undergraduates, Joint Mathematics Meetings, jan. 2025
-          [ <a href="H%C3%B6lder_estimates_for_the_Hausdorff_distance_and_a_quasi_metric.pdf" download>PDF</a> ]
-        </p>
-        <p>Manifolds, mixed volumes, and a quasi-metric, Tufts Math Monday Meeting, oct. 2024</p>
-        <p>Counterexamples in measure, Tufts Math Monday Meeting, mar. 2024</p>
-        <p>Metric geometry of convex bodies, Tufts Math Monday Meeting, oct. 2025</p>
-        <p><span class="tight-paren">(</span>Near-)metrics arising from valuations on convex bodies, BUGCAT 2025, nov. 2025</p>
-        <p>Alternative geometries on the space of convex bodies, Contributed Session on Research by Undergraduates, Joint Mathematics Meetings, jan. 2026</p>
-      </div>
-    </section>
-
-    <section id="contact" class="section prose">
-      <h2>contact</h2>
-      <p>email: <a href="mailto:david.cutler@tufts.edu">david.cutler@tufts.edu</a></p>
+    <section class="section prose">
+      <h2>Contact</h2>
+      <p>Email: <a href="mailto:david.cutler@tufts.edu">david.cutler@tufts.edu</a></p>
     </section>
 
     <footer class="prose">
-      <p>last updated: jan. 20, 2026.</p>
+      <p>Last updated: Jan. 20, 2026.</p>
     </footer>
-
-    <script>
-      (function(){
-        const links = Array.from(document.querySelectorAll('.sidebar nav a'));
-        const map = Object.fromEntries(links.map(a => [a.getAttribute('href').slice(1), a]));
-        const observer = new IntersectionObserver((entries)=>{
-          entries.forEach(e=>{
-            if(e.isIntersecting){
-              const id = e.target.id;
-              links.forEach(l=>l.classList.toggle('active', l === map[id]));
-            }
-          });
-        }, {rootMargin: '-50% 0px -45% 0px', threshold: [0, 1]});
-        document.querySelectorAll('main .section').forEach(sec=>observer.observe(sec));
-      })();
-    </script>
-
-    <script>
-      (function(){
-        const bar = document.querySelector('.progress');
-        const update = () => {
-          const d = document.documentElement;
-          const pct = (d.scrollTop / (d.scrollHeight - d.clientHeight)) * 100;
-          bar.style.width = pct + '%';
-        };
-        addEventListener('scroll', update, { passive: true });
-        addEventListener('resize', update);
-        update();
-      })();
-    </script>
   </main>
 </body>
 </html>
