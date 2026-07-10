@@ -5,7 +5,6 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>David Owen Horace Cutler | Research</title>
 
-  <!-- MathJax (LaTeX-style math in $...$ / \( ... \) / \[ ... \]) -->
   <script>
     window.MathJax = {
       tex: {
@@ -18,20 +17,37 @@
       }
     };
   </script>
-  <script defer src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+
+  <script
+    defer
+    src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"
+  ></script>
 
   <style>
     :root {
-      --bg: #fdfdfd;
-      --ink: #000000;
-      --accent: #000000;
-      --rule: rgba(0, 0, 0, 0.25);
-      --muted: #555555;
+      --bg: #111111;
+      --surface: #161616;
+      --ink: #eeeeee;
+      --accent: #ffffff;
+      --rule: rgba(255, 255, 255, 0.24);
+      --muted: #aaaaaa;
+      --hover: rgba(255, 255, 255, 0.07);
+      --active: rgba(255, 255, 255, 0.11);
     }
 
-    * { box-sizing: border-box; }
-    html, body { height: 100%; }
-    html { scroll-behavior: smooth; }
+    * {
+      box-sizing: border-box;
+    }
+
+    html,
+    body {
+      height: 100%;
+    }
+
+    html {
+      scroll-behavior: smooth;
+      color-scheme: dark;
+    }
 
     body {
       margin: 0;
@@ -47,8 +63,14 @@
       position: relative;
     }
 
-    a { color: var(--accent); text-decoration: none; }
-    a:hover { text-decoration: underline; }
+    a {
+      color: var(--accent);
+      text-decoration: none;
+    }
+
+    a:hover {
+      text-decoration: underline;
+    }
 
     body::before {
       content: "";
@@ -58,19 +80,18 @@
       background-image:
         repeating-linear-gradient(
           0deg,
-          rgba(0,0,0,0.045) 0,
-          rgba(0,0,0,0.045) 1px,
+          rgba(255, 255, 255, 0.025) 0,
+          rgba(255, 255, 255, 0.025) 1px,
           transparent 1px,
           transparent 3px
         ),
         repeating-linear-gradient(
           90deg,
-          rgba(0,0,0,0.025) 0,
-          rgba(0,0,0,0.025) 1px,
+          rgba(255, 255, 255, 0.015) 0,
+          rgba(255, 255, 255, 0.015) 1px,
           transparent 1px,
           transparent 4px
         );
-      mix-blend-mode: multiply;
       pointer-events: none;
     }
 
@@ -80,27 +101,29 @@
       left: 0;
       bottom: 0;
       width: 288px;
-      border-right: 1px solid var(--rule);
-      background: var(--bg);
+      height: 100vh;
       padding: 1.75rem 1rem 2rem;
       display: flex;
       flex-direction: column;
       gap: 1rem;
-      height: 100vh;
+      border-right: 1px solid var(--rule);
+      background: var(--surface);
     }
 
-    .brand { text-align: center; }
+    .brand {
+      text-align: center;
+    }
 
     .brand h1 {
-      font-size: 1.3rem;
       margin: 0 0 .2rem;
+      font-size: 1.3rem;
       letter-spacing: .04em;
     }
 
     .brand p {
       margin: 0;
-      font-size: .9rem;
       color: var(--muted);
+      font-size: .9rem;
     }
 
     nav {
@@ -110,131 +133,155 @@
 
     nav a {
       display: block;
-      padding: .25rem .35rem;
       margin-bottom: .1rem;
-      letter-spacing: .04em;
+      padding: .25rem .35rem;
       color: var(--ink);
       border-left: 2px solid transparent;
+      letter-spacing: .04em;
       transition: background .15s ease, border-color .15s ease;
     }
 
-    nav a:hover { background: rgba(0,0,0,0.05); }
-    nav a.active {
-      border-left-color: var(--ink);
-      background: rgba(0,0,0,0.08);
+    nav a:hover {
+      background: var(--hover);
     }
 
-    .content { margin-left: 288px; padding: 2rem; }
+    nav a.active {
+      border-left-color: var(--ink);
+      background: var(--active);
+    }
 
-    .section { margin: 0 0 2.2rem; }
-    .prose { max-width: 980px; }
+    .content {
+      margin-left: 288px;
+      padding: 2rem;
+    }
+
+    .section {
+      margin: 0 0 2.2rem;
+    }
+
+    .prose {
+      max-width: 980px;
+    }
 
     .section h2 {
+      display: inline-block;
+      margin: 0 0 .75rem;
+      padding: .15rem .35rem .15rem .15rem;
+      border-bottom: 1px solid var(--ink);
       font-size: 1.1rem;
       font-weight: 600;
       letter-spacing: .06em;
-      margin: 0 0 .75rem;
-      display: inline-block;
-      padding: .15rem .35rem .15rem .15rem;
-      border-bottom: 1px solid var(--ink);
       transform: rotate(-0.4deg);
     }
 
     .section h3 {
-      font-size: 1rem;
       margin: 1rem 0 .4rem;
       color: var(--muted);
-      letter-spacing: .04em;
+      font-size: 1rem;
       font-weight: 600;
+      letter-spacing: .04em;
     }
 
-    p { margin: 0 0 .9rem; font-size: 1rem; }
-
-    .paper-row {
-      display: flex;
-      gap: 1rem;
-      align-items: flex-start;
-      margin: .8rem 0 1.1rem;
+    p {
+      margin: 0 0 .9rem;
+      font-size: 1rem;
     }
 
-    .paper-text { flex: 1 1 auto; min-width: 0; }
+    .paper {
+      margin: .8rem 0 1.4rem;
+    }
 
-    /* italic blurb placeholder under each citation */
     .paper-blurb {
       margin-top: .35rem;
       font-size: .95rem;
       font-style: italic;
-      /* keep it visually "small" without changing color */
       letter-spacing: .01em;
     }
 
-    /* framed thumbnail: image centered within a slightly larger white canvas */
-    .paper-frame {
-      flex: 0 0 240px;
-      width: 240px;
-      max-width: 240px;
-      border: 1px solid var(--ink);
-      background: #ffffff;
-      padding: 12px;              /* the "mat" */
-      display: flex;
-      align-items: center;
-      justify-content: center;
+    .simple-list p {
+      margin: .6rem 0;
     }
 
-    .paper-thumb {
-      width: 100%;
-      height: auto;
-      max-height: 190px;          /* keeps the mat visible */
-      object-fit: contain;
-      display: block;
-      background: #ffffff;
+    .tight-paren {
+      display: inline-block;
+      margin-left: -0.5ch;
     }
-
-    .simple-list p { margin: .6rem 0; }
-
-    .tight-paren { display: inline-block; margin-left: -0.5ch; }
 
     footer {
       margin-top: 2rem;
-      font-size: .9rem;
-      color: var(--muted);
-      border-top: 1px solid var(--rule);
       padding-top: .5rem;
-    }
-
-    @media (max-width: 920px) {
-      .paper-row { flex-direction: column; }
-      .paper-frame { width: 100%; max-width: 520px; flex-basis: auto; }
-      .paper-thumb { max-height: 260px; }
+      border-top: 1px solid var(--rule);
+      color: var(--muted);
+      font-size: .9rem;
     }
 
     @media (max-width: 760px) {
+      body {
+        display: block;
+      }
+
       .sidebar {
         position: static;
         width: 100%;
+        height: auto;
         border-right: 0;
         border-bottom: 1px solid var(--rule);
-        height: auto;
       }
-      .content { margin: 0; padding: 1.25rem; }
-      nav { display: flex; overflow-x: auto; gap: .35rem; padding-bottom: .25rem; }
-      nav a { white-space: nowrap; }
+
+      .content {
+        margin: 0;
+        padding: 1.25rem;
+      }
+
+      nav {
+        display: flex;
+        gap: .35rem;
+        overflow-x: auto;
+        padding-bottom: .25rem;
+      }
+
+      nav a {
+        white-space: nowrap;
+      }
     }
 
     @media print {
-      .sidebar { display: none; }
-      .content { margin: 0; }
-      a { text-decoration: none; color: inherit; }
-      body::before { display: none; }
+      :root {
+        --bg: #ffffff;
+        --surface: #ffffff;
+        --ink: #000000;
+        --accent: #000000;
+        --muted: #555555;
+        --rule: rgba(0, 0, 0, 0.25);
+      }
+
+      .sidebar {
+        display: none;
+      }
+
+      .content {
+        margin: 0;
+      }
+
+      a {
+        color: inherit;
+        text-decoration: none;
+      }
+
+      body::before {
+        display: none;
+      }
     }
   </style>
 </head>
+
 <body>
   <aside class="sidebar">
     <div class="brand">
       <h1>David Owen Horace Cutler</h1>
-      <p>Undergraduate student</p>
+      <p>PhD Student</p>
     </div>
+
     <nav>
       <a href="index.html">Home</a>
       <a class="active" href="research.html">Research</a>
@@ -247,79 +294,135 @@
 
       <h3>Research publications</h3>
 
-      <div class="paper-row">
-        <div class="paper-text">
-          <p>
-            <em>The Hausdorff distance and metrics on toric singularity types</em>
-            (with A. Aitokhuehi, B. Braiman, T. Darvas, M. Deaton, P. Gupta, J. Horsley, V. Pidaparthy, J. Tang),
-            Bull. Sci. Math. 204 (2025), art. 103714,
-            <a href="https://arxiv.org/abs/2411.11246" target="_blank" rel="noopener">arXiv:2411.11246</a>
-          </p>
-          <p class="paper-blurb">
-            We consider a construction that assigns to a convex body $G$ a quasimetric $d_G$, and we give estimates comparing $d_G$ to the Hausdorff distance.
-          </p>
-        </div>
-        <div class="paper-frame" aria-label="Figure thumbnail for: The Hausdorff distance and metrics on toric singularity types">
-          <img class="paper-thumb" src="paper1.png" alt="Thumbnail for: The Hausdorff distance and metrics on toric singularity types" />
-        </div>
+      <div class="paper">
+        <p>
+          <em>
+            The Hausdorff distance and metrics on toric singularity types
+          </em>,
+          A. Aitokhuehi et al.,
+          <em>Bull. Sci. Math.</em> 204 (2025), Paper No. 103714,
+          <a
+            href="https://arxiv.org/abs/2411.11246"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            arXiv:2411.11246
+          </a>,
+          20 pp.
+        </p>
+
+        <p class="paper-blurb">
+          We consider a construction that assigns to a convex body $G$ a
+          quasimetric $d_G$, and we give estimates comparing $d_G$ to the
+          Hausdorff distance.
+        </p>
       </div>
 
-      <div class="paper-row">
-        <div class="paper-text">
-          <p>
-            <em>Intrinsic metrics from valuations on convex bodies</em>
-            (with M. Deaton), in preparation
-          </p>
-          <p class="paper-blurb">
-            To any valuation on convex bodies, we associate a pseudometric. Under broad conditions, it is a metric, and we study its metric geometry and topology.
-          </p>
-        </div>
-        <div class="paper-frame" aria-label="Animated thumbnail for: Intrinsic metrics from valuations on convex bodies">
-          <img class="paper-thumb" src="paper2.gif" alt="Animated thumbnail (GIF) for: Intrinsic metrics from valuations on convex bodies" />
-        </div>
+      <div class="paper">
+        <p>
+          <em>Intrinsic metrics from valuations on convex bodies</em>,
+          D. O. H. Cutler and M. Deaton, in preparation
+        </p>
+
+        <p class="paper-blurb">
+          To any valuation on convex bodies, we associate a pseudometric.
+          Under broad conditions, it is a metric, and we study its metric
+          geometry and topology.
+        </p>
       </div>
 
       <h3>Manuscripts, other papers, etc.</h3>
 
-      <div class="paper-row">
-        <div class="paper-text">
-          <p>
-            <em>Cutting a pancake using an exotic knife</em>
-            (with N. Sloane), preprint,
-            <a href="https://arxiv.org/abs/2511.15864" target="_blank" rel="noopener">arXiv:2511.15864</a>,
-            <a href="https://www.nytimes.com/2026/01/20/science/infinite-pancake-math-puzzle.html?unlocked_article_code=1.Q1A.zOkV.xJH5E2F32ZPO&smid=url-share" target="_blank" rel="noopener">featured in NY Times</a>
-          </p>
-          <p class="paper-blurb">
-            We consider some generalizations of the lazy caterer’s problem, along with the pertinent combinatorics and experimental mathematics.
-          </p>
-        </div>
-        <div class="paper-frame" aria-label="Figure thumbnail for: Cutting a pancake using an exotic knife">
-          <img class="paper-thumb" src="paper3.png" alt="Thumbnail for: Cutting a pancake using an exotic knife" />
-        </div>
+      <div class="paper">
+        <p>
+          <em>Cutting a Pancake with an Exotic Knife</em>,
+          D. O. H. Cutler et al., to appear in the
+          <em>Journal of Integer Sequences</em>,
+          <a
+            href="https://arxiv.org/abs/2511.15864"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            arXiv:2511.15864
+          </a>,
+          47 pp.,
+          <a
+            href="https://www.nytimes.com/2026/01/20/science/infinite-pancake-math-puzzle.html?unlocked_article_code=1.Q1A.zOkV.xJH5E2F32ZPO&amp;smid=url-share"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            featured in The New York Times
+          </a>.
+        </p>
+
+        <p class="paper-blurb">
+          We consider generalizations of the lazy caterer’s problem,
+          together with the pertinent combinatorics and experimental
+          mathematics.
+        </p>
       </div>
     </section>
 
     <section class="section prose">
       <h2>Talks</h2>
+
       <div class="simple-list">
         <p>
-          <a href="https://meetings.ams.org/math/jmm2025/meetingapp.cgi/Paper/42612" target="_blank" rel="noopener">
-            <em>Hölder estimates for the Hausdorff distance and a quasimetric</em>
+          <a
+            href="https://meetings.ams.org/math/jmm2025/meetingapp.cgi/Paper/42612"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <em>
+              Hölder estimates for the Hausdorff distance and a quasimetric
+            </em>
           </a>,
-          AMS–MAA–SIAM Special Session on Research in Mathematics by Undergraduates, Joint Mathematics Meetings, Jan. 2025
-          [ <a href="H%C3%B6lder_estimates_for_the_Hausdorff_distance_and_a_quasi_metric.pdf" download>PDF</a> ]
+          AMS–MAA–SIAM Special Session on Research in Mathematics by
+          Undergraduates, Joint Mathematics Meetings, Jan. 2025
+          [
+          <a
+            href="H%C3%B6lder_estimates_for_the_Hausdorff_distance_and_a_quasi_metric.pdf"
+            download
+          >
+            PDF
+          </a>
+          ]
         </p>
-        <p>Manifolds, mixed volumes, and a quasimetric, Tufts Math Monday Meeting, Oct. 2024</p>
-        <p>Counterexamples in measure, Tufts Math Monday Meeting, Mar. 2024</p>
-        <p>Metric geometry of convex bodies, Tufts Math Monday Meeting, Oct. 2025</p>
-        <p><span class="tight-paren">(</span>Near-)metrics arising from valuations on convex bodies, BUGCAT 2025, Nov. 2025</p>
-        <p>Alternative geometries on the space of convex bodies, Contributed Session on Research by Undergraduates, Joint Mathematics Meetings, Jan. 2026</p>
-        <p>Valuations and integral geometry, Tufts Math Monday Meeting, Apr. 2026</p>
+
+        <p>
+          Manifolds, mixed volumes, and a quasimetric, Tufts Math Monday
+          Meeting, Oct. 2024
+        </p>
+
+        <p>
+          Counterexamples in measure, Tufts Math Monday Meeting, Mar. 2024
+        </p>
+
+        <p>
+          Metric geometry of convex bodies, Tufts Math Monday Meeting,
+          Oct. 2025
+        </p>
+
+        <p>
+          <span class="tight-paren">(</span>Near-)metrics arising from
+          valuations on convex bodies, BUGCAT 2025, Nov. 2025
+        </p>
+
+        <p>
+          Alternative geometries on the space of convex bodies, Contributed
+          Session on Research by Undergraduates, Joint Mathematics Meetings,
+          Jan. 2026
+        </p>
+
+        <p>
+          Valuations and integral geometry, Tufts Math Monday Meeting,
+          Apr. 2026
+        </p>
       </div>
     </section>
 
     <footer class="prose">
-      <p>Last updated: Jan. 20, 2026.</p>
+      <p>Last updated: July 10, 2026.</p>
     </footer>
   </main>
 </body>
