@@ -1,4 +1,3 @@
-```html
 <!doctype html>
 <html lang="en">
 <head>
@@ -164,6 +163,29 @@
       max-width: 980px;
     }
 
+    .research-image {
+      width: 100%;
+      max-width: 980px;
+      margin: 0 0 2rem;
+    }
+
+    .research-image img {
+      display: block;
+      width: 100%;
+      height: auto;
+      max-height: 520px;
+      object-fit: contain;
+      border: 1px solid var(--ink);
+      background: var(--surface);
+    }
+
+    .image-caption {
+      margin: .4rem 0 0;
+      color: var(--muted);
+      font-size: .9rem;
+      font-style: italic;
+    }
+
     .section h2 {
       display: inline-block;
       margin: 0 0 .75rem;
@@ -290,6 +312,21 @@
   </aside>
 
   <main class="content">
+    <figure class="research-image prose">
+      <img
+        src="cat-mology.png"
+        alt="A row of the Mayer--Vietoris sequence for cat-mology"
+      />
+      <figcaption class="image-caption">
+        A row of the Mayer--Vietoris sequence for cat-mology, by
+        <a
+          href="https://catherinedileo.github.io/"
+          target="_blank"
+          rel="noopener noreferrer"
+        >Catherine DiLeo</a>
+      </figcaption>
+    </figure>
+
     <section class="section prose">
       <h2>Papers</h2>
 
@@ -307,11 +344,13 @@
           >
             arXiv:2411.11246
           </a>,
-          20 pp
+          20 pp.
         </p>
 
         <p class="paper-blurb">
-          We study a quasimetric on the space of singularity types of model potentials via convex-geometric means, establishing various estimates comparing it to the Hausdorff distance.
+          We study a quasimetric on the space of singularity types of model
+          potentials via convex-geometric means, establishing various
+          estimates comparing it to the Hausdorff distance.
         </p>
       </div>
 
@@ -342,7 +381,7 @@
           >
             arXiv:2511.15864
           </a>,
-          47 pp, featured in
+          47 pp., featured in
           <a
             href="https://www.nytimes.com/2026/01/20/science/infinite-pancake-math-puzzle.html?unlocked_article_code=1.Q1A.zOkV.xJH5E2F32ZPO&amp;smid=url-share"
             target="_blank"
@@ -355,17 +394,13 @@
             href="https://www.youtube.com/watch?v=3KWwMzSxB1Y"
             target="_blank"
             rel="noopener noreferrer"
-          >
-            1
-          </a>
+          >[1]</a>
           and
           <a
             href="https://www.youtube.com/watch?v=v8e-tYey7ts"
             target="_blank"
             rel="noopener noreferrer"
-          >
-            2
-          </a>
+          >[2]</a>
         </p>
 
         <p class="paper-blurb">
@@ -386,9 +421,7 @@
             target="_blank"
             rel="noopener noreferrer"
           >
-            <em>
-              Hölder estimates for the Hausdorff distance and a quasimetric
-            </em>
+            <em>Hölder estimates for the Hausdorff distance and a quasimetric</em>
           </a>,
           AMS–MAA–SIAM Special Session on Research in Mathematics by
           Undergraduates, Joint Mathematics Meetings, Jan. 2025
@@ -403,33 +436,34 @@
         </p>
 
         <p>
-          Manifolds, mixed volumes, and a quasimetric, Tufts Math Monday
-          Meeting, Oct. 2024
+          <em>Manifolds, mixed volumes, and a quasimetric</em>,
+          Tufts Math Monday Meeting, Oct. 2024
         </p>
 
         <p>
-          Counterexamples in measure, Tufts Math Monday Meeting, Mar. 2024
+          <em>Counterexamples in measure</em>,
+          Tufts Math Monday Meeting, Mar. 2024
         </p>
 
         <p>
-          Metric geometry of convex bodies, Tufts Math Monday Meeting,
-          Oct. 2025
+          <em>Metric geometry of convex bodies</em>,
+          Tufts Math Monday Meeting, Oct. 2025
         </p>
 
         <p>
-          <span class="tight-paren">(</span>Near-)metrics arising from
-          valuations on convex bodies, BUGCAT 2025, Nov. 2025
+          <em><span class="tight-paren">(</span>Near-)metrics arising from valuations on convex bodies</em>,
+          BUGCAT 2025, Nov. 2025
         </p>
 
         <p>
-          Alternative geometries on the space of convex bodies, Contributed
-          Session on Research by Undergraduates, Joint Mathematics Meetings,
-          Jan. 2026
+          <em>Alternative geometries on the space of convex bodies</em>,
+          Contributed Session on Research by Undergraduates,
+          Joint Mathematics Meetings, Jan. 2026
         </p>
 
         <p>
-          Valuations and integral geometry, Tufts Math Monday Meeting,
-          Apr. 2026
+          <em>Valuations and integral geometry</em>,
+          Tufts Math Monday Meeting, Apr. 2026
         </p>
       </div>
     </section>
@@ -440,4 +474,3 @@
   </main>
 </body>
 </html>
-```
