@@ -6,16 +6,27 @@
   <title>David Owen Horace Cutler | Mathematics</title>
   <style>
     :root {
-      --bg: #fdfdfd;
-      --ink: #000000;
-      --accent: #000000;
-      --rule: rgba(0, 0, 0, 0.25);
-      --muted: #555555;
+      --bg: #111111;
+      --surface: #161616;
+      --ink: #eeeeee;
+      --accent: #ffffff;
+      --rule: rgba(255, 255, 255, 0.24);
+      --muted: #aaaaaa;
+      --hover: rgba(255, 255, 255, 0.07);
+      --active: rgba(255, 255, 255, 0.11);
     }
 
     * { box-sizing: border-box; }
-    html, body { height: 100%; }
-    html { scroll-behavior: smooth; }
+
+    html,
+    body {
+      height: 100%;
+    }
+
+    html {
+      scroll-behavior: smooth;
+      color-scheme: dark;
+    }
 
     body {
       margin: 0;
@@ -31,8 +42,14 @@
       position: relative;
     }
 
-    a { color: var(--accent); text-decoration: none; }
-    a:hover { text-decoration: underline; }
+    a {
+      color: var(--accent);
+      text-decoration: none;
+    }
+
+    a:hover {
+      text-decoration: underline;
+    }
 
     body::before {
       content: "";
@@ -42,19 +59,18 @@
       background-image:
         repeating-linear-gradient(
           0deg,
-          rgba(0,0,0,0.045) 0,
-          rgba(0,0,0,0.045) 1px,
+          rgba(255, 255, 255, 0.025) 0,
+          rgba(255, 255, 255, 0.025) 1px,
           transparent 1px,
           transparent 3px
         ),
         repeating-linear-gradient(
           90deg,
-          rgba(0,0,0,0.025) 0,
-          rgba(0,0,0,0.025) 1px,
+          rgba(255, 255, 255, 0.015) 0,
+          rgba(255, 255, 255, 0.015) 1px,
           transparent 1px,
           transparent 4px
         );
-      mix-blend-mode: multiply;
       pointer-events: none;
     }
 
@@ -65,7 +81,7 @@
       bottom: 0;
       width: 288px;
       border-right: 1px solid var(--rule);
-      background: var(--bg);
+      background: var(--surface);
       padding: 1.75rem 1rem 2rem;
       display: flex;
       flex-direction: column;
@@ -73,7 +89,9 @@
       height: 100vh;
     }
 
-    .brand { text-align: center; }
+    .brand {
+      text-align: center;
+    }
 
     .brand h1 {
       font-size: 1.3rem;
@@ -102,10 +120,13 @@
       transition: background .15s ease, border-color .15s ease;
     }
 
-    nav a:hover { background: rgba(0,0,0,0.05); }
+    nav a:hover {
+      background: var(--hover);
+    }
+
     nav a.active {
       border-left-color: var(--ink);
-      background: rgba(0,0,0,0.08);
+      background: var(--active);
     }
 
     .content {
@@ -113,8 +134,13 @@
       padding: 2rem;
     }
 
-    .section { margin: 0 0 2.2rem; }
-    .prose { max-width: 900px; }
+    .section {
+      margin: 0 0 2.2rem;
+    }
+
+    .prose {
+      max-width: 900px;
+    }
 
     .section h2 {
       font-size: 1.1rem;
@@ -127,12 +153,15 @@
       transform: rotate(-0.4deg);
     }
 
-    p { margin: 0 0 .9rem; font-size: 1rem; }
+    p {
+      margin: 0 0 .9rem;
+      font-size: 1rem;
+    }
 
     .about {
       display: grid;
-      grid-template-columns: minmax(0, 2.2fr) minmax(0, 1.2fr);
-      gap: 1.1rem;
+      grid-template-columns: minmax(260px, .85fr) minmax(0, 1.4fr);
+      gap: 1.5rem;
       align-items: flex-start;
     }
 
@@ -143,21 +172,27 @@
     }
 
     .portrait {
+      display: block;
       width: 100%;
-      max-width: 100%;
-      aspect-ratio: 16 / 9;
-      object-fit: contain;
-      background: #ffffff;
+      max-width: 420px;
+      aspect-ratio: 4 / 5;
+      object-fit: cover;
+      object-position: center;
+      background: var(--surface);
       border: 1px solid var(--ink);
     }
 
     .photo-caption {
+      max-width: 420px;
       font-size: .9rem;
       color: var(--muted);
       font-style: italic;
     }
 
-    .hint { color: var(--muted); font-size: .9rem; }
+    .hint {
+      color: var(--muted);
+      font-size: .9rem;
+    }
 
     .btn {
       display: inline-block;
@@ -167,12 +202,22 @@
       font-weight: 700;
       font-size: .9rem;
       background: transparent;
+      color: var(--ink);
       letter-spacing: .04em;
       cursor: pointer;
+      transition: background .15s ease, color .15s ease;
     }
 
-    .btn:hover { background: rgba(0,0,0,0.06); text-decoration: none; }
-    .btn:focus-visible { outline: 1px dashed var(--ink); outline-offset: 2px; }
+    .btn:hover {
+      background: var(--ink);
+      color: var(--bg);
+      text-decoration: none;
+    }
+
+    .btn:focus-visible {
+      outline: 1px dashed var(--ink);
+      outline-offset: 3px;
+    }
 
     footer {
       margin-top: 2rem;
@@ -183,10 +228,24 @@
     }
 
     @media (max-width: 950px) {
-      .about { grid-template-columns: 1fr; }
+      .about {
+        grid-template-columns: 1fr;
+      }
+
+      .portrait {
+        max-width: 480px;
+      }
+
+      .photo-caption {
+        max-width: 480px;
+      }
     }
 
     @media (max-width: 760px) {
+      body {
+        display: block;
+      }
+
       .sidebar {
         position: static;
         width: 100%;
@@ -195,7 +254,10 @@
         height: auto;
       }
 
-      .content { margin: 0; padding: 1.25rem; }
+      .content {
+        margin: 0;
+        padding: 1.25rem;
+      }
 
       nav {
         display: flex;
@@ -204,23 +266,47 @@
         padding-bottom: .25rem;
       }
 
-      nav a { white-space: nowrap; }
+      nav a {
+        white-space: nowrap;
+      }
     }
 
     @media print {
-      .sidebar { display: none; }
-      .content { margin: 0; }
-      a { text-decoration: none; color: inherit; }
-      body::before { display: none; }
+      :root {
+        --bg: #ffffff;
+        --ink: #000000;
+        --accent: #000000;
+        --muted: #555555;
+        --rule: rgba(0, 0, 0, 0.25);
+      }
+
+      .sidebar {
+        display: none;
+      }
+
+      .content {
+        margin: 0;
+      }
+
+      a {
+        color: inherit;
+        text-decoration: none;
+      }
+
+      body::before {
+        display: none;
+      }
     }
   </style>
 </head>
+
 <body>
   <aside class="sidebar">
     <div class="brand">
       <h1>David Owen Horace Cutler</h1>
-      <p>Undergraduate student</p>
+      <p>PhD Student</p>
     </div>
+
     <nav>
       <a class="active" href="index.html">Home</a>
       <a href="research.html">Research</a>
@@ -230,27 +316,50 @@
   <main class="content">
     <section class="section prose">
       <h2>About me</h2>
+
       <div class="about">
         <div class="about-image">
-          <img class="portrait" src="me.png" alt="Portrait" />
-          <p class="photo-caption">A row of the Mayer–Vietoris sequence for cat-mology.</p>
+          <img class="portrait" src="me.jpg" alt="Portrait of David Cutler" />
+          <p class="photo-caption">
+            A picture of me with some presumptive ancestors. <em><a href="https://da.wikipedia.org/wiki/Danmark" target="_blank" rel="noopener noreferrer">Ja, jeg kan tale lidt dansk.</a></em>
+          </p>
         </div>
+
         <div>
           <p>
-            Hi! I’m David Owen Horace Cutler. I will be starting my PhD in pure mathematics at the University of Michigan in fall 2026. 
+            Hi! I’m David Owen Horace Cutler. I will be starting my PhD in pure
+            mathematics at the University of Michigan in fall 2026.
           </p>
+
           <p>
-            My (mathematical) interests lie in the interaction between complex and convex geometry, as well as in each subject separately.
+            My mathematical interests lie in the interaction between complex
+            and convex geometry, as well as in each subject separately.
           </p>
+
           <p class="hint">
             Art by
-            <a href="https://catherinedileo.github.io/" target="_blank" rel="noopener">Catherine DiLeo</a>.
+            <a
+              href="https://catherinedileo.github.io/"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              Catherine DiLeo
+            </a>.
           </p>
+
           <p>
-            <a class="btn" href="Cutler-CV-2026-01.pdf" download="Cutler-CV-2026-01.pdf" type="application/pdf">
+            <a
+              class="btn"
+              href="Cutler-CV-2026-01.pdf"
+              download="Cutler-CV-2026-01.pdf"
+              type="application/pdf"
+            >
               Download CV
             </a>
-            <span style="margin-left:.5rem; color: var(--muted); font-size:.9rem;">
+
+            <span
+              style="margin-left:.5rem; color:var(--muted); font-size:.9rem;"
+            >
               Updated Jan. 2026
             </span>
           </p>
@@ -260,11 +369,14 @@
 
     <section class="section prose">
       <h2>Contact</h2>
-      <p>Email: <a href="mailto:david.cutler@tufts.edu">david.cutler@tufts.edu</a>.</p>
+      <p>
+        Email:
+        <a href="mailto:cutler@umich.edu">cutler@umich.edu</a>.
+      </p>
     </section>
 
     <footer class="prose">
-      <p>Last updated: Mar. 6, 2026.</p>
+      <p>Last updated: July 10, 2026.</p>
     </footer>
   </main>
 </body>
